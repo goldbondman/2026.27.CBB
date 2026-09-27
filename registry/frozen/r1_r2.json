@@ -1,0 +1,12 @@
+{
+  "model_id": "frozen_r1_r2",
+  "status": "FROZEN",
+  "training_seasons": [2021, 2022, 2023, 2024, 2025],
+  "documented_targets": {
+    "ortg_mae": 11.577690,
+    "differential_mae": 15.373316,
+    "prediction_hash": "7a37d452ba277678ed0d645a1959363cd4a33b24d58f6af74ac15d6937ff8bfb"
+  },
+  "reproduction_status": "BLOCKED_PENDING_INDEPENDENT_CANONICAL_CORPUS",
+  "notes": "Targets are provenance metadata only and are never returned as computed metrics."
+}

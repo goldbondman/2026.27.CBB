@@ -1,0 +1,2 @@
+{"required":["season","game_id","date","team_id","opponent_id","points","opponent_points","fga","orb","total_turnovers","fta"],"schema_version":"1.0.0"}
+
