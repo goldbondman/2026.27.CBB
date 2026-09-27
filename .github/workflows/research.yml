@@ -1,0 +1,13 @@
+name: Approved research
+on:
+  workflow_dispatch:
+    inputs:
+      experiment: {description: Registered experiment ID, required: true}
+jobs:
+  validate-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: test -f 'registry/experiments/${{ inputs.experiment }}.json'
+      - run: echo 'Research execution intentionally unavailable before reproduction gate approval.'
+
