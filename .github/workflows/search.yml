@@ -1,0 +1,8 @@
+name: Search gate
+on: workflow_dispatch
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Large search is disabled until Milestone 6 is explicitly authorized.' && exit 1
+
