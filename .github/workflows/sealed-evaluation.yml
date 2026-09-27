@@ -1,0 +1,13 @@
+name: Protected sealed evaluation
+on:
+  workflow_dispatch:
+    inputs:
+      acknowledgement: {description: Type APPROVED_SEALED_EVALUATION, required: true}
+jobs:
+  protected:
+    environment: sealed-2026
+    runs-on: ubuntu-latest
+    steps:
+      - run: test '${{ inputs.acknowledgement }}' = APPROVED_SEALED_EVALUATION
+      - run: echo 'Protected hook only; no holdout evaluation is implemented or invoked in v0.1.'
+

@@ -1,0 +1,19 @@
+model:
+  name: frozen_r1_r2
+  family: recursive_od
+  status: FROZEN
+base_k: 0.12
+transition_scale: 1.20
+preseason:
+  returning_minutes_coefficient: 0.30
+  returning_minutes_center: 0.375
+  transfer_experience_coefficient: 0.06
+updating:
+  possession_information: true
+  maturity_amplitude: 0.20
+  maturity_horizon_games: 10
+  multiplier_min: 0.5
+  multiplier_max: 1.5
+seasons: [2021, 2022, 2023, 2024, 2025]
+seed: 202627
+
