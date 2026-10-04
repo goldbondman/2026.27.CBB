@@ -43,6 +43,7 @@ class RecursiveOD:
                 returning_minutes.get(team, returning_center) - returning_center
             )
             modifier += transfer_coefficient * transfer_experience_z.get(team, 0.0)
+            modifier = min(max(modifier, 0.55), 1.45)
             offense, defense = previous[team]
             self.offense[team] = offense * modifier
             self.defense[team] = defense * modifier
@@ -87,8 +88,9 @@ class RecursiveOD:
                     )
                 )
             # Crucial: prediction of the entire date precedes every state update.
+            # Frozen R1/R2 semantics apply the FULL k*residual to O_A and D_B.
             for team, opponent, residual, k in updates:
-                self.offense[team] = self.offense.get(team, 0.0) + k * residual / 2
-                self.defense[opponent] = self.defense.get(opponent, 0.0) - k * residual / 2
+                self.offense[team] = self.offense.get(team, 0.0) + k * residual
+                self.defense[opponent] = self.defense.get(opponent, 0.0) - k * residual
                 self.games[team] = self.games.get(team, 0) + 1
         return pd.DataFrame(predictions)
