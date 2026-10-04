@@ -1,0 +1,24 @@
+name: Market edge validation
+on:
+  push:
+    paths:
+      - scripts/market_edge_validation.py
+      - .github/workflows/market-edge-validation.yml
+  workflow_dispatch:
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install pandas pyarrow numpy scipy scikit-learn
+      - run: python scripts/market_edge_validation.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: market-edge-validation
+          path: results/market_edge_validation
+          retention-days: 30
