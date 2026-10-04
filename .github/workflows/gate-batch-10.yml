@@ -1,0 +1,33 @@
+name: Ten-gate research batch
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/build-github-based-engineering-infrastructure-kdb9cz
+    paths:
+      - 'scripts/gate_batch_10.py'
+      - '.github/workflows/gate-batch-10.yml'
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install research dependencies
+        run: python -m pip install pandas pyarrow numpy scikit-learn
+      - name: Execute ten-gate historical batch
+        run: python scripts/gate_batch_10.py
+      - name: Upload research results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cbb-gate-batch-10
+          path: results/gate_batch_10
+          if-no-files-found: error
+          retention-days: 30
