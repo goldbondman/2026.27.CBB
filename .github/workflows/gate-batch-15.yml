@@ -7,6 +7,7 @@ on:
       - codex/build-github-based-engineering-infrastructure-kdb9cz
     paths:
       - 'scripts/gate_batch_15.py'
+      - 'scripts/gate_batch_15_v2.py'
       - 'src/cbb/ratings/recursive.py'
       - '.github/workflows/gate-batch-15.yml'
 
@@ -23,7 +24,7 @@ jobs:
       - name: Install research dependencies
         run: python -m pip install pandas pyarrow numpy scipy scikit-learn
       - name: Execute fifteen-gate historical batch
-        run: python scripts/gate_batch_15.py
+        run: python scripts/gate_batch_15_v2.py
       - name: Upload research results
         if: always()
         uses: actions/upload-artifact@v4
