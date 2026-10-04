@@ -8,6 +8,7 @@ on:
     paths:
       - 'scripts/gate_batch_10.py'
       - 'scripts/gate_batch_10_v2.py'
+      - 'scripts/gate_batch_10_v3.py'
       - '.github/workflows/gate-batch-10.yml'
 
 jobs:
@@ -23,7 +24,7 @@ jobs:
       - name: Install research dependencies
         run: python -m pip install pandas pyarrow numpy scikit-learn
       - name: Execute ten-gate historical batch
-        run: python scripts/gate_batch_10_v2.py
+        run: python scripts/gate_batch_10_v3.py
       - name: Upload research results
         if: always()
         uses: actions/upload-artifact@v4
