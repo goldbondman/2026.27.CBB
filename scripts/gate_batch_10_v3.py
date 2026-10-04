@@ -68,8 +68,6 @@ def exact_frozen_continuity() -> pd.DataFrame:
 
 
 def load_player_features(team_season: pd.DataFrame) -> pd.DataFrame:
-    # Retain the exact historical P1 challenger feature definitions, but replace baseline
-    # rp/ztr with the exact frozen R1/R2 continuity algorithm used in run 36214772412.
     p1=ORIG_P1_FEATURES(team_season)
     exact=exact_frozen_continuity()[["season","team","rp","ztr"]]
     p1=p1.drop(columns=[c for c in ["rp","ztr"] if c in p1.columns]).merge(exact,on=["season","team"],how="left")
@@ -79,4 +77,6 @@ def load_player_features(team_season: pd.DataFrame) -> pd.DataFrame:
 base.load_team_games=load_team_games
 base.team_season_table=team_season_table
 base.load_player_features=load_player_features
-base.main()
+
+if __name__ == "__main__":
+    base.main()
