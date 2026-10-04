@@ -1,0 +1,24 @@
+name: Twenty-gate research batch
+on:
+  push:
+    paths:
+      - scripts/gate_batch_20.py
+      - .github/workflows/gate-batch-20.yml
+  workflow_dispatch:
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install pandas pyarrow numpy scipy scikit-learn
+      - run: python scripts/gate_batch_20.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gate-batch-20-results
+          path: results/gate_batch_20
+          retention-days: 30
