@@ -1,0 +1,21 @@
+name: Audit market season semantics and snapshots
+on:
+  push:
+    paths:
+      - 'scripts/gate_batch_35_audit.py'
+      - '.github/workflows/gate-batch-35-audit.yml'
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pandas
+      - run: python scripts/gate_batch_35_audit.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gate-batch-35-audit-results
+          path: results/gate_batch_35_audit
+          retention-days: 30
