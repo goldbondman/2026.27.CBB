@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/prediction-first-venue-repair.yml'
       - 'scripts/prediction_first_venue_repair.py'
+      - 'scripts/prediction_first_venue_repair_patch.py'
   workflow_dispatch:
 jobs:
   research:
@@ -28,7 +29,7 @@ jobs:
           unzip -q /tmp/g15.zip -d /tmp/g15
           unzip -q /tmp/g10.zip -d /tmp/g10
       - name: Repair neutral-site context and rerun T16-T17
-        run: python scripts/prediction_first_venue_repair.py
+        run: python scripts/prediction_first_venue_repair_patch.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
