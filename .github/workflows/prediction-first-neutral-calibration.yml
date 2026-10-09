@@ -1,0 +1,35 @@
+name: Prediction First Neutral Calibration
+on:
+  push:
+    paths:
+      - '.github/workflows/prediction-first-neutral-calibration.yml'
+      - 'scripts/prediction_first_neutral_calibration.py'
+  workflow_dispatch:
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -e .
+      - name: Download G15 and venue artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/g15 /tmp/venue
+          gh api repos/${{ github.repository }}/actions/artifacts/11293620780/zip > /tmp/g15.zip
+          gh api repos/${{ github.repository }}/actions/artifacts/11644132841/zip > /tmp/venue.zip
+          unzip -q /tmp/g15.zip -d /tmp/g15
+          unzip -q /tmp/venue.zip -d /tmp/venue
+      - run: python scripts/prediction_first_neutral_calibration.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prediction-first-neutral-calibration
+          path: results/prediction_first_neutral_calibration
+          if-no-files-found: error
