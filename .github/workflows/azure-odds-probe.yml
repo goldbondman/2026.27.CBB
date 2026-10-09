@@ -1,0 +1,21 @@
+name: Probe Azure raw odds archive
+on:
+  push:
+    paths:
+      - 'scripts/azure_odds_probe.py'
+      - '.github/workflows/azure-odds-probe.yml'
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests
+      - run: python scripts/azure_odds_probe.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: azure-odds-probe-results
+          path: results/azure_odds_probe
+          retention-days: 30
