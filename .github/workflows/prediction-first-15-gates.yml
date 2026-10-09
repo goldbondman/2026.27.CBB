@@ -4,6 +4,7 @@ on:
     paths:
       - '.github/workflows/prediction-first-15-gates.yml'
       - 'scripts/prediction_first_15_gates.py'
+      - 'scripts/prediction_first_15_gates_patch.py'
   workflow_dispatch:
 jobs:
   research:
@@ -29,7 +30,7 @@ jobs:
           unzip -q /tmp/g10.zip -d /tmp/g10
           ls -lah /tmp/g15 /tmp/g10
       - name: Execute T16-T17 prediction-first gates
-        run: python scripts/prediction_first_15_gates.py
+        run: python scripts/prediction_first_15_gates_patch.py
       - uses: actions/upload-artifact@v4
         with:
           name: prediction-first-15-gates
