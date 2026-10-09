@@ -1,0 +1,22 @@
+name: Thirty-gate full-season market robustness fuzzy
+on:
+  push:
+    paths:
+      - 'scripts/gate_batch_30_fuzzy.py'
+      - '.github/workflows/gate-batch-30-fuzzy.yml'
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install pandas pyarrow numpy scipy scikit-learn
+      - run: python scripts/gate_batch_30_fuzzy.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gate-batch-30-fuzzy-results
+          path: results/gate_batch_30_fuzzy
+          retention-days: 30
