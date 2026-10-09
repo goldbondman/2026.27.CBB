@@ -3,7 +3,6 @@ import re
 from collections import defaultdict
 from difflib import SequenceMatcher
 import pandas as pd
-import numpy as np
 
 G15='/tmp/g15/game_predictions.parquet'
 NCAA='https://raw.githubusercontent.com/sportsdataverse/ncaa-mbb-hoops-data/main/mbb/ncaa_mbb_schedule_master.parquet'
@@ -12,7 +11,7 @@ ESPN='https://github.com/sportsdataverse/sportsdataverse-data/releases/download/
 def nn(x): return re.sub(r'[^a-z0-9]','',str(x).lower()) if pd.notna(x) else ''
 
 g=pd.read_parquet(G15); g['game_id']=g.game_id.astype(str); g['date']=pd.to_datetime(g.date).dt.normalize()
-s=pd.read_parquet(NCAA); s['game_id']=s.game_id.astype(str); s['hk']=s.home.map(nn); s['ak']=s.away.map(nn)
+s=pd.read_parquet(NCAA); gid='game_id' if 'game_id' in s.columns else 'contest_id'; s=s.rename(columns={gid:'game_id'}); s['game_id']=s.game_id.astype(str); s['hk']=s.home.map(nn); s['ak']=s.away.map(nn)
 b=g.merge(s[['game_id','home','away','hk','ak']].drop_duplicates('game_id'),on='game_id',how='left'); b['t0']=b.team0.map(nn); b['t1']=b.team1.map(nn); b=b[(b.t0==b.hk)|(b.t1==b.hk)].copy()
 
 xs=[]
@@ -25,7 +24,7 @@ print('ESPN FILES')
 for sy,z in e.groupby('file_sy'):
     print(sy,len(z),z.edate.min(),z.edate.max(),sorted(z.season.dropna().unique())[:10])
 
-keys=set(zip(e.edate,e.hk,e.ak)); epm=set((d,h,a) for d,h,a in keys)
+keys=set(zip(e.edate,e.hk,e.ak))
 rows=[]
 for sy,z in b.groupby('season'):
     exact=sum((r.date,r.hk,r.ak) in keys for r in z.itertuples(index=False)); pm1=sum(((r.date-pd.Timedelta(days=1),r.hk,r.ak) in keys or (r.date+pd.Timedelta(days=1),r.hk,r.ak) in keys) for r in z.itertuples(index=False) if (r.date,r.hk,r.ak) not in keys)
@@ -33,7 +32,6 @@ for sy,z in b.groupby('season'):
 print('BASE COVERAGE EXACT')
 for r in rows: print(r)
 
-# Print a small unmatched sample from each season and best same-date ESPN names for diagnostics.
 bydate=defaultdict(list)
 for r in e.itertuples(index=False): bydate[r.edate].append((r.hk,r.ak,r.file_sy))
 for sy,z in b.groupby('season'):
