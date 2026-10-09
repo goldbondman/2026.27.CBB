@@ -1,0 +1,37 @@
+name: Prediction First Venue Repair
+on:
+  push:
+    paths:
+      - '.github/workflows/prediction-first-venue-repair.yml'
+      - 'scripts/prediction_first_venue_repair.py'
+  workflow_dispatch:
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -e .
+      - name: Download frozen research artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/g15 /tmp/g10
+          gh api repos/${{ github.repository }}/actions/artifacts/11293620780/zip > /tmp/g15.zip
+          gh api repos/${{ github.repository }}/actions/artifacts/11291726474/zip > /tmp/g10.zip
+          unzip -q /tmp/g15.zip -d /tmp/g15
+          unzip -q /tmp/g10.zip -d /tmp/g10
+      - name: Repair neutral-site context and rerun T16-T17
+        run: python scripts/prediction_first_venue_repair.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prediction-first-venue-repair
+          path: results/prediction_first_venue_repair
+          if-no-files-found: warn
