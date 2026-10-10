@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'scripts/prediction_first_third15.py'
+      - 'scripts/prediction_first_third15_v2.py'
       - '.github/workflows/prediction-first-third15.yml'
   workflow_dispatch:
 permissions:
@@ -48,7 +49,7 @@ jobs:
           github-token: ${{ github.token }}
           run-id: 37988473245
       - name: Execute T19.09 through T22.01
-        run: python scripts/prediction_first_third15.py
+        run: python scripts/prediction_first_third15_v2.py
       - uses: actions/upload-artifact@v4
         with:
           name: prediction-first-third15
