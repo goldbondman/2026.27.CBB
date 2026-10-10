@@ -1,0 +1,32 @@
+name: Prediction First Third 15 QC
+on:
+  push:
+    paths:
+      - 'scripts/prediction_first_third15_qc.py'
+      - '.github/workflows/prediction-first-third15-qc.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -e .
+      - uses: actions/download-artifact@v4
+        with:
+          name: prediction-first-third15
+          path: /tmp/third15
+          github-token: ${{ github.token }}
+          run-id: 38080201656
+      - run: python scripts/prediction_first_third15_qc.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prediction-first-third15-qc
+          path: results/prediction_first_third15_qc
+          retention-days: 90
