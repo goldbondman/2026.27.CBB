@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'scripts/prediction_first_next15.py'
+      - 'scripts/prediction_first_next15_v2.py'
       - '.github/workflows/prediction-first-next15.yml'
   workflow_dispatch:
 jobs:
@@ -17,7 +18,7 @@ jobs:
           cache: pip
       - run: pip install -e .
       - name: Execute T18-T19 gates
-        run: python scripts/prediction_first_next15.py
+        run: python scripts/prediction_first_next15_v2.py
       - uses: actions/upload-artifact@v4
         with:
           name: prediction-first-next15
