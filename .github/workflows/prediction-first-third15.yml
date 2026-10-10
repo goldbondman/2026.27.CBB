@@ -1,0 +1,55 @@
+name: Prediction First Third 15
+on:
+  push:
+    paths:
+      - 'scripts/prediction_first_third15.py'
+      - '.github/workflows/prediction-first-third15.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -e .
+      - name: Download G15 frozen predictions
+        uses: actions/download-artifact@v4
+        with:
+          name: cbb-gate-batch-15
+          path: /tmp/g15
+          github-token: ${{ github.token }}
+          run-id: 37175629711
+      - name: Download G10 pace predictions
+        uses: actions/download-artifact@v4
+        with:
+          name: cbb-gate-batch-10
+          path: /tmp/g10
+          github-token: ${{ github.token }}
+          run-id: 37171572901
+      - name: Download T18-T19 component artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: prediction-first-next15
+          path: /tmp/pfnext
+          github-token: ${{ github.token }}
+          run-id: 38061671764
+      - name: Download venue identity artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: prediction-first-venue-alias-final
+          path: /tmp/venue
+          github-token: ${{ github.token }}
+          run-id: 37988473245
+      - name: Execute T19.09 through T22.01
+        run: python scripts/prediction_first_third15.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prediction-first-third15
+          path: results/prediction_first_third15
