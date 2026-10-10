@@ -1,0 +1,30 @@
+name: Prediction First Third15 QC Final
+on:
+  push:
+    paths:
+      - 'scripts/prediction_first_third15_qc_final.py'
+      - '.github/workflows/prediction-first-third15-qc-final.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12', cache: pip}
+      - run: pip install -e .
+      - uses: actions/download-artifact@v4
+        with: {name: cbb-gate-batch-15, path: /tmp/g15, github-token: '${{ github.token }}', run-id: 37175629711}
+      - uses: actions/download-artifact@v4
+        with: {name: cbb-gate-batch-10, path: /tmp/g10, github-token: '${{ github.token }}', run-id: 37171572901}
+      - uses: actions/download-artifact@v4
+        with: {name: prediction-first-next15, path: /tmp/pfnext, github-token: '${{ github.token }}', run-id: 38061671764}
+      - uses: actions/download-artifact@v4
+        with: {name: prediction-first-venue-alias-final, path: /tmp/venue, github-token: '${{ github.token }}', run-id: 37988473245}
+      - run: python scripts/prediction_first_third15_qc_final.py
+      - uses: actions/upload-artifact@v4
+        with: {name: prediction-first-third15-qc-final, path: results/prediction_first_third15}
