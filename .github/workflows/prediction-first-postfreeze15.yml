@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'scripts/prediction_first_postfreeze15.py'
+      - 'scripts/prediction_first_postfreeze15_v2.py'
       - '.github/workflows/prediction-first-postfreeze15.yml'
   workflow_dispatch:
 permissions:
@@ -27,7 +28,7 @@ jobs:
           github-token: ${{ github.token }}
           run-id: 38157090295
       - name: Execute T24.01 through T24.15
-        run: python scripts/prediction_first_postfreeze15.py
+        run: python scripts/prediction_first_postfreeze15_v2.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
