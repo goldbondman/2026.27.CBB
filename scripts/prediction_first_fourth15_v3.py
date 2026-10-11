@@ -41,7 +41,7 @@ def old_vs_champion_fast(gp,r2,pace,venue,sched,pm):
         y=(te.ah>te.aa).astype(int); row={'season':sy,'n':len(te)}
         for pref in ['old','ch']:
             row[pref+'_team_mae']=float(np.mean(np.r_[abs(te.ah-te[pref+'_h']),abs(te.aa-te[pref+'_a'])])); row[pref+'_margin_mae']=float(abs((te.ah-te.aa)-(te[pref+'_h']-te[pref+'_a'])).mean()); row[pref+'_total_mae']=float(abs((te.ah+te.aa)-(te[pref+'_h']+te[pref+'_a'])).mean()); row[pref+'_brier']=float(np.mean((te[pref+'_p']-y)**2)); row[pref+'_joint_nll']=float(te[pref+'_nll'].mean())
-        rows.append(row); te['d_team']=(abs(te.ah-te.ch_h)+abs(te.aa-te.ch_a))/2-(abs(te.ah-te.old_h)+abs(te.aa-te.old_a))/2; te['d_margin']=abs((te.ah-te.aa)-(te.ch_h-te.ch_a))-abs((te.ah-te.aa)-(te.old_h-te.old_a)); te['d_total']=abs((te.ah+te.aa)-(te.ch_h+te.ch_a))-abs((te.ah+te.aa)-(te.old_h-te.old_a)); te['d_brier']=(te.ch_p-y)**2-(te.old_p-y)**2; detail.append(te[['game_id','date','season','d_team','d_margin','d_total','d_brier']])
+        rows.append(row); te['d_team']=(abs(te.ah-te.ch_h)+abs(te.aa-te.ch_a))/2-(abs(te.ah-te.old_h)+abs(te.aa-te.old_a))/2; te['d_margin']=abs((te.ah-te.aa)-(te.ch_h-te.ch_a))-abs((te.ah-te.aa)-(te.old_h-te.old_a)); te['d_total']=abs((te.ah+te.aa)-(te.ch_h+te.ch_a))-abs((te.ah+te.aa)-(te.old_h+te.old_a)); te['d_brier']=(te.ch_p-y)**2-(te.old_p-y)**2; detail.append(te[['game_id','date','season','d_team','d_margin','d_total','d_brier']])
     A=pd.DataFrame(rows); D=pd.concat(detail,ignore_index=True); D['day']=pd.to_datetime(D.date).dt.date; boots=[]
     days=np.array(sorted(D.day.unique()),dtype=object)
     for metric in ['d_team','d_margin','d_total','d_brier']:
