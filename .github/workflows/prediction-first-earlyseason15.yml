@@ -1,0 +1,27 @@
+name: Prediction First Early Season 15
+on:
+  push:
+    paths:
+      - 'scripts/prediction_first_earlyseason15.py'
+      - '.github/workflows/prediction-first-earlyseason15.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -e .
+      - name: Execute T27.01 through T27.15
+        run: python scripts/prediction_first_earlyseason15.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prediction-first-earlyseason15
+          path: results/prediction_first_earlyseason15
