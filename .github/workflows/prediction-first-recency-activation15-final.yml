@@ -20,10 +20,10 @@ jobs:
           mkdir -p /tmp/freeze
           gh api repos/${{ github.repository }}/actions/artifacts/11709535789/zip > /tmp/freeze.zip
           unzip -q /tmp/freeze.zip -d /tmp/freeze
-      - name: Execute final repaired T37.01 through T37.15
+      - name: Execute optimized final repaired T37.01 through T37.15
         run: python scripts/prediction_first_recency_activation15_repair.py
       - uses: actions/upload-artifact@v4
         with:
-          name: prediction-first-recency-activation15-final
+          name: prediction-first-recency-activation15-final-optimized
           path: results/prediction_first_recency_activation15/
           retention-days: 90
