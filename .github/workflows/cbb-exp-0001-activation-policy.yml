@@ -1,0 +1,30 @@
+name: CBB EXP 0001 Activation Policy Freeze
+on:
+  push:
+    paths:
+      - 'scripts/cbb_exp_0001_freeze_activation_policy.py'
+      - '.github/workflows/cbb-exp-0001-activation-policy.yml'
+  workflow_dispatch:
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -e .
+      - name: Download immutable v14 freeze artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/freeze
+          gh api repos/${{ github.repository }}/actions/artifacts/11709535789/zip > /tmp/freeze.zip
+          unzip -q /tmp/freeze.zip -d /tmp/freeze
+      - name: Run CBB-EXP-0001
+        run: python scripts/cbb_exp_0001_freeze_activation_policy.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cbb-exp-0001-activation-policy
+          path: results/cbb_exp_0001_activation_policy/
+          retention-days: 90
