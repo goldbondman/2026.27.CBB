@@ -1,0 +1,48 @@
+Question_ID,Objective_ID,Program_ID,State,Stopping_State,ERV,Question
+CBB-Q-001,CBB-OBJ-001,CBB-PROG-001,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,"Is the historical team-game universe reproducible, identity-clean and PIT-safe?"
+CBB-Q-002,CBB-OBJ-001,CBB-PROG-001,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,Are canonical turnover and box-possession semantics correct and stable enough for production?
+CBB-Q-003,CBB-OBJ-001,CBB-PROG-001,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,"Does the historical feature compiler prevent same-game, same-date and future leakage?"
+CBB-Q-004,CBB-OBJ-001,CBB-PROG-002,ANSWERED_REPLICATED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,Can possessions be reconstructed from PBP with conservation and period-boundary correctness?
+CBB-Q-005,CBB-OBJ-001,CBB-PROG-002,REJECTED,REJECTED_WITH_SUFFICIENT_EVIDENCE,LOW,Do explicit event reconstructions improve final score/outcome forecasts enough to beat the simpler distribution?
+CBB-Q-006,CBB-OBJ-002,CBB-PROG-003,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,Does the R2 offense/defense state improve opponent-adjusted team efficiency chronologically?
+CBB-Q-007,CBB-OBJ-002,CBB-PROG-003,ANSWERED_CONDITIONAL,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,MEDIUM,What preseason/cross-season prior best initializes team strength without hindsight?
+CBB-Q-008,CBB-OBJ-002,CBB-PROG-004,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,What is the best legal pregame pace mean and does context improve it?
+CBB-Q-009,CBB-OBJ-002,CBB-PROG-004,ANSWERED_REPLICATED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,What distribution best represents possession-count uncertainty?
+CBB-Q-010,CBB-OBJ-002,CBB-PROG-005,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,"Does score-first modeling provide the best coherent mean forecast for scores, margin and total?"
+CBB-Q-011,CBB-OBJ-003,CBB-PROG-006,PROSPECTIVE_VALIDATION_PENDING,PROSPECTIVE_VALIDATION_REQUIRED,HIGH,Can historical pre-tip injury/availability be reconstructed legally enough to improve forecasts?
+CBB-Q-012,CBB-OBJ-003,CBB-PROG-006,PARTIALLY_ANSWERED,CONTINUE_RESEARCH,MEDIUM,Can projected rotations/minutes and roster membership be represented without current-game hindsight?
+CBB-Q-013,CBB-OBJ-003,CBB-PROG-007,ANSWERED_REPLICATED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,How persistent are returning-player skills and how should transfers translate across programs/roles?
+CBB-Q-014,CBB-OBJ-003,CBB-PROG-007,PARTIALLY_ANSWERED,BLOCKED_PENDING_NEW_INFORMATION,HIGH,Does legal roster/transfer composition add to early-season v14 forecasts?
+CBB-Q-015,CBB-OBJ-003,CBB-PROG-007,ACTIVE,CONTINUE_RESEARCH,HIGH,"How quickly should current-season state, style and rotation evidence override preseason priors?"
+CBB-Q-016,CBB-OBJ-004,CBB-PROG-008,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,What home-court treatment improves forecasts without double counting?
+CBB-Q-017,CBB-OBJ-004,CBB-PROG-008,ANSWERED_CONDITIONAL,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,How should neutral-site games alter mean forecasts and reliability?
+CBB-Q-018,CBB-OBJ-004,CBB-PROG-009,REJECTED,REJECTED_WITH_SUFFICIENT_EVIDENCE,LOW,"Do generic rest/compression features improve mean, pace or uncertainty?"
+CBB-Q-019,CBB-OBJ-004,CBB-PROG-009,BLOCKED,BLOCKED_PENDING_NEW_INFORMATION,LOW,Can travel/time-zone/altitude be sourced and shown to add OOS predictive value?
+CBB-Q-020,CBB-OBJ-004,CBB-PROG-010,REJECTED,REJECTED_WITH_SUFFICIENT_EVIDENCE,LOW,"Does postseason/tournament context require special mean, sigma or style adjustments?"
+CBB-Q-021,CBB-OBJ-004,CBB-PROG-010,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,Are structural-gap upset probabilities calibrated without a separate upset model?
+CBB-Q-022,CBB-OBJ-005,CBB-PROG-011,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,"What joint score residual distribution best balances proper score, calibration and simplicity?"
+CBB-Q-023,CBB-OBJ-005,CBB-PROG-011,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,Are push-aware discrete margin/total probabilities correct and production-safe?
+CBB-Q-024,CBB-OBJ-005,CBB-PROG-011,ANSWERED_CONDITIONAL,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,Which derived game-state probabilities are actually calibrated enough to expose?
+CBB-Q-025,CBB-OBJ-005,CBB-PROG-012,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,MEDIUM,"Can forecast reliability be ranked meaningfully and separately for margin, score, total and win probability?"
+CBB-Q-026,CBB-OBJ-005,CBB-PROG-012,REJECTED,REJECTED_WITH_SUFFICIENT_EVIDENCE,LOW,Can epistemic/aleatoric or novelty/OOD scores add production reliability information?
+CBB-Q-027,CBB-OBJ-005,CBB-PROG-012,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,What support/coverage/abstention contract is defensible for each forecast target?
+CBB-Q-028,CBB-OBJ-006,CBB-PROG-013,ANSWERED_CONDITIONAL,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,Which event components contain independent predictive/distributional information beyond structural means?
+CBB-Q-029,CBB-OBJ-006,CBB-PROG-013,ACTIVE,CONTINUE_RESEARCH,VERY_HIGH,Do ORB/DRB add incremental margin information in the mature non-neutral recency cohort?
+CBB-Q-030,CBB-OBJ-006,CBB-PROG-014,REJECTED,REJECTED_WITH_SUFFICIENT_EVIDENCE,LOW,Does generic recent outcome form add enough beyond structural state to use broadly?
+CBB-Q-031,CBB-OBJ-006,CBB-PROG-014,ANSWERED_REPLICATED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,MEDIUM,Does opponent/model-adjusted recent state add after correcting baseline calibration?
+CBB-Q-032,CBB-OBJ-006,CBB-PROG-014,PARTIALLY_ANSWERED,CONTINUE_RESEARCH,VERY_HIGH,"When should adjusted-L7 activate, and on which venue cohorts?"
+CBB-Q-033,CBB-OBJ-006,CBB-PROG-014,ANSWERED_REPLICATED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,MEDIUM,Can uncertainty scaling make the activated recency challenger improve proper scores and coverage?
+CBB-Q-034,CBB-OBJ-006,CBB-PROG-015,REJECTED,REJECTED_WITH_SUFFICIENT_EVIDENCE,LOW,Does generic residual ML beat the structural model with stable chronological OOS value?
+CBB-Q-035,CBB-OBJ-006,CBB-PROG-015,REJECTED,REJECTED_WITH_SUFFICIENT_EVIDENCE,LOW,Do recursive recent form or matchup interactions add independently beyond simpler main effects?
+CBB-Q-036,CBB-OBJ-006,CBB-PROG-015,PARTIALLY_ANSWERED,CONTINUE_RESEARCH,HIGH,Which compact alternative-factor bundle adds independently after calibration and recency?
+CBB-Q-037,CBB-OBJ-006,CBB-PROG-016,ACTIVE,CONTINUE_RESEARCH,VERY_HIGH,Has any registered challenger earned a formal production reopen against immutable v14?
+CBB-Q-038,CBB-OBJ-006,CBB-PROG-016,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,What exact criteria freeze or reopen forecast construction?
+CBB-Q-039,CBB-OBJ-007,CBB-PROG-017,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,"Can the frozen forecast system survive retries, crashes, schedule mutations and tampering without corrupting state?"
+CBB-Q-040,CBB-OBJ-007,CBB-PROG-018,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,"Can daily slate inputs be reconciled, provenance-pinned, freshness-checked and locked pre-tip reproducibly?"
+CBB-Q-041,CBB-OBJ-007,CBB-PROG-018,PROSPECTIVE_VALIDATION_PENDING,PROSPECTIVE_VALIDATION_REQUIRED,HIGH,Is the 2026 prospective blind workflow operationally ready while outcomes remain sealed?
+CBB-Q-042,CBB-OBJ-008,CBB-PROG-019,PARTIALLY_ANSWERED,CONTINUE_RESEARCH,MEDIUM,Does market disagreement contain exploitable value after the blind forecast is locked?
+CBB-Q-043,CBB-OBJ-008,CBB-PROG-020,BLOCKED,BLOCKED_PENDING_NEW_INFORMATION,LOW,Which market expression and bet/pass thresholds add economic value without overfitting?
+CBB-Q-044,CBB-OBJ-008,CBB-PROG-020,BLOCKED,BLOCKED_PENDING_NEW_INFORMATION,LOW,What staking/portfolio policy is justified once a market edge family is validated?
+CBB-Q-045,CBB-OBJ-008,CBB-PROG-021,PROSPECTIVE_VALIDATION_PENDING,PROSPECTIVE_VALIDATION_REQUIRED,MEDIUM,Can postgame error taxonomy and monitoring reliably generate high-value research triggers?
+CBB-Q-046,CBB-OBJ-003,CBB-PROG-007,OPEN,CONTINUE_RESEARCH,MEDIUM,Do coach/system changes materially improve early-season team-state forecasts after roster/player priors and current-season evidence?
+CBB-Q-047,CBB-OBJ-001,CBB-PROG-002,OPEN,CONTINUE_RESEARCH,MEDIUM,"Does identifying or down-weighting garbage-time, intentional-fouling, bench-clearing and overtime-distorted possessions improve learned team state OOS?"
