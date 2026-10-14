@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'scripts/cbb_exp_0003_formal_reopen_tournament.py'
+      - 'scripts/cbb_exp_0003_formal_reopen_tournament_repair.py'
       - '.github/workflows/cbb-exp-0003-reopen-tournament.yml'
   workflow_dispatch:
 jobs:
@@ -21,10 +22,10 @@ jobs:
           mkdir -p /tmp/freeze
           gh api repos/${{ github.repository }}/actions/artifacts/11709535789/zip > /tmp/freeze.zip
           unzip -q /tmp/freeze.zip -d /tmp/freeze
-      - name: Run CBB-EXP-0003
-        run: python scripts/cbb_exp_0003_formal_reopen_tournament.py
+      - name: Run repaired CBB-EXP-0003
+        run: python scripts/cbb_exp_0003_formal_reopen_tournament_repair.py
       - uses: actions/upload-artifact@v4
         with:
-          name: cbb-exp-0003-reopen-tournament
+          name: cbb-exp-0003-reopen-tournament-repaired
           path: results/cbb_exp_0003_reopen_tournament/
           retention-days: 90
