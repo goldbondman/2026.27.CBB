@@ -1,0 +1,2 @@
+Question_ID,Objective_ID,Program_ID,State,Stopping_State,ERV,Question
+CBB-Q-048,CBB-OBJ-007,CBB-PROG-022,ANSWERED_CERTIFIED,SUFFICIENT_EVIDENCE_FOR_CURRENT_DECISION,LOW,"Does the CBB Research & Production OS enforce complete objective lineage, anti-duplication, stopping rules, objective-aware routing and verified state persistence?"
