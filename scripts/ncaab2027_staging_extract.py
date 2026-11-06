@@ -108,3 +108,26 @@ with open(OUT/"cross_source_match.csv","w",newline="") as f:
  w=csv.DictWriter(f,fieldnames=list(reconciled[0]) if reconciled else ["game_id"]);w.writeheader();w.writerows(reconciled)
 
 report("NCAA_DEBUG",{"sample_rows":nc.head(3)[["contest_id","espn_game_id","team_espn_team_id","home","away","team","pts","d_pts","team_ncaa_team_id"]].astype(str).to_dict("records"),"nonnull_espn_game_id":int(nc["espn_game_id"].notna().sum()),"nonnull_espn_team_id":int(nc["team_espn_team_id"].notna().sum()),"contest_id_dtype":str(nc["contest_id"].dtype),"espn_game_id_dtype":str(nc["espn_game_id"].dtype)})
+
+# Pair NCAA records by native contest ID, then match ESPN via *both* ESPN team IDs and score identity.
+# NCAA does not publish usable espn_game_id in this source version.
+ngroups={}
+for record in ndf:
+ k=str(value(record,"contest_id",""))
+ ngroups.setdefault(k,[]).append(record)
+npairs=[];nbad=[]
+for contest,records in ngroups.items():
+ if len(records)!=2:
+  nbad.append({"contest_id":contest,"reason":"NOT_TWO_ROWS"});continue
+ home=str(value(records[0],"home",""));away=str(value(records[0],"away",""))
+ nh=next((q for q in records if str(value(q,"team",""))==home),None)
+ na=next((q for q in records if str(value(q,"team",""))==away),None)
+ if nh is None or na is None:
+  nbad.append({"contest_id":contest,"reason":"MISSING_HOME_AWAY_MATCH"});continue
+ hp=integer(nh,"pts");ap=integer(na,"pts")
+ if hp is None or ap is None or integer(nh,"d_pts")!=ap or integer(na,"d_pts")!=hp:
+  nbad.append({"contest_id":contest,"reason":"SCORE_MIRROR"});continue
+ h=integer(nh,"team_espn_team_id");a=integer(na,"team_espn_team_id")
+ q={"contest_id":contest,"home":home,"away":away,"home_espn_id":h,"away_espn_id":a,"home_points":hp,"away_points":ap}
+ npairs.append(q);report("NCAA_PAIR",q)
+report("NCAA_PAIR_SUMMARY",{"games":len(npairs),"both_espn_ids":sum(1 for t in npairs if t["home_espn_id"] is not None and t["away_espn_id"] is not None),"missing_ids":sum(1 for t in npairs if t["home_espn_id"] is None or t["away_espn_id"] is None),"quarantine":nbad[:15],"total_ncaacontest_ids":len(ngroups)})
