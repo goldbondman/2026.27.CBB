@@ -5,7 +5,10 @@ import tempfile
 
 import pandas as pd
 
-spec = importlib.util.spec_from_file_location('r010', str(Path(__file__).with_name('cbb_r010_source_qa.py')))
+script_path = Path(__file__).resolve().parents[2] / 'scripts' / 'cbb_r010_source_qa.py'
+if not script_path.exists():
+    script_path = Path(__file__).with_name('cbb_r010_source_qa.py')
+spec = importlib.util.spec_from_file_location('r010', str(script_path))
 r010 = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(r010)
 
