@@ -22,4 +22,26 @@ rng=np.random.default_rng(4112026)
 boot=np.array([rng.choice(bygame.values,size=len(bygame),replace=True).mean() for _ in range(4000)])
 cs={
 "n_games":int(m.contest_id.nunique()),"n_team_rows":len(m),"n_possession_rows":len(pos),"n_player_rows":len(player),
-"event_key_duplicates":int(...[truncated]
+"event_key_duplicates":int(pos.duplicated(['contest_id','period','poss_num']).sum()),
+"paired_games":int((team.groupby('contest_id').size()==2).sum()),
+"player_pts_exact":int(np.isclose(m.playerpts,m.pts).sum()),
+"event_pts_exact":int(np.isclose(m.eventpts,m.pts).sum()),
+"event_pts_abs_diff_sum":float((m.eventpts-m.pts).abs().sum()),
+"event_pts_abs_diff_max":float((m.eventpts-m.pts).abs().max()),
+"event_total_pace_mean":float(m.events.mean()),
+"o_poss_mean":float(m.o_poss.mean()),
+"o_poss_vs_events_exact":int(np.isclose(m.events,m.o_poss).sum()),
+"p44_mae_vs_events":float(m.error_44.mean()),
+"p475_mae_vs_events":float(m.error_475.mean()),
+"p44_bias_vs_events":float((m.p44-m.events).mean()),
+"p475_bias_vs_events":float((m.p475-m.events).mean()),
+"mae_gain_475_over_44":float(m.paired_gain.mean()),
+"mae_gain_bootstrap_ci95":np.quantile(boot,[.025,.975]).tolist(),
+"source_sha256":{k:hashlib.sha256((p/(k+'.parquet')).read_bytes()).hexdigest() for k in sources},
+"source_last_date":str(pd.to_datetime(pos.game_date,format='%m/%d/%Y').max()),
+"event_reconstruction_status":"NCAA presegmented poss_num events are source-derived not independent adjudicated benchmark",
+"game_crosswalk":"NCAA 2027 ESPN game ID null; require game/date/score matching; excluded from possession comparisons"
+}
+print(json.dumps(cs,indent=2))
+(p/'possession_research.json').write_text(json.dumps(cs,indent=2))
+
