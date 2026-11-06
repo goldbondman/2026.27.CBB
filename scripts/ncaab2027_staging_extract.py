@@ -106,3 +106,5 @@ full={gid for gid,teams in groups.items() if len(teams)==2}
 report("CROSS_SOURCE",{"ncaa_rows":len(nc),"ncaa_with_valid_espn_match":len(reconciled),"cross_source_two_team_games":len(full),"cross_source_two_team_rows":2*len(full),"unmatched_ncaa":len(unmatched),"score_conflicts":len(score_conflict),"unmatched_examples":unmatched[:15],"conflict_examples":score_conflict[:15],"verified_game_ids":sorted(full)})
 with open(OUT/"cross_source_match.csv","w",newline="") as f:
  w=csv.DictWriter(f,fieldnames=list(reconciled[0]) if reconciled else ["game_id"]);w.writeheader();w.writerows(reconciled)
+
+report("NCAA_DEBUG",{"sample_rows":nc.head(3)[["contest_id","espn_game_id","team_espn_team_id","home","away","team","pts","d_pts","team_ncaa_team_id"]].astype(str).to_dict("records"),"nonnull_espn_game_id":int(nc["espn_game_id"].notna().sum()),"nonnull_espn_team_id":int(nc["team_espn_team_id"].notna().sum()),"contest_id_dtype":str(nc["contest_id"].dtype),"espn_game_id_dtype":str(nc["espn_game_id"].dtype)})
