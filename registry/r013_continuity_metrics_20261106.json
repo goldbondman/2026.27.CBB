@@ -1,0 +1,69 @@
+{
+  "source_method": "ESPN current season year-specific roster snapshots (retrospective, PIT uncertified)",
+  "2025_development_2026_reused_screen": {
+    "2025": {
+      "prior_player_rows": 198586,
+      "roster_players": 13056,
+      "eligible_games": 597,
+      "raw_completed_games": 827,
+      "prior_teams": 362,
+      "ret_minutes_mean": 0.09584574443663474,
+      "ret_minutes_p10": 0.0,
+      "ret_minutes_p90": 0.25482245369769096,
+      "prior_league_pp100": 104.86873225086686,
+      "prior_league_pace": 69.57033854166667,
+      "date_min": "2024-11-04 00:00:00",
+      "date_end": "2024-11-18 00:00:00"
+    },
+    "2026": {
+      "prior_player_rows": 207613,
+      "roster_players": 12438,
+      "eligible_games": 611,
+      "raw_completed_games": 829,
+      "prior_teams": 365,
+      "ret_minutes_mean": 0.2898440705372399,
+      "ret_minutes_p10": 0.06715165664002873,
+      "ret_minutes_p90": 0.5281205181944779,
+      "prior_league_pp100": 105.91770920966785,
+      "prior_league_pace": 69.0771078587337,
+      "date_min": "2025-11-03 00:00:00",
+      "date_end": "2025-11-17 00:00:00"
+    }
+  },
+  "margin": {
+    "baseline": {
+      "mae": 12.055692358665077,
+      "bias": -0.7713403086583723,
+      "rmse": 15.317907956383035,
+      "train_mae": 11.600186870153978,
+      "features": [
+        "base_margin",
+        "strength_diff",
+        "base_pace",
+        "prior_maturity"
+      ]
+    },
+    "player": {
+      "mae": 12.052800147761674,
+      "bias": -0.8385293066882283,
+      "rmse": 15.321922111169359,
+      "train_mae": 11.60762452262839,
+      "features": [
+        "base_margin",
+        "strength_diff",
+        "base_pace",
+        "prior_maturity",
+        "ret_diff_minutes",
+        "ret_diff_points",
+        "ret_diff_field_goals_attempted",
+        "ret_min_minutes"
+      ]
+    },
+    "paired_mae_gain": 0.0028922109034016197,
+    "bootstrap_ci95": [
+      -0.025532918910299213,
+      0.025987350189816717
+    ],
+    "risk": {
+      "U0": {
+        "abs...[truncated]
