@@ -131,3 +131,41 @@ for contest,records in ngroups.items():
  q={"contest_id":contest,"home":home,"away":away,"home_espn_id":h,"away_espn_id":a,"home_points":hp,"away_points":ap}
  npairs.append(q);report("NCAA_PAIR",q)
 report("NCAA_PAIR_SUMMARY",{"games":len(npairs),"both_espn_ids":sum(1 for t in npairs if t["home_espn_id"] is not None and t["away_espn_id"] is not None),"missing_ids":sum(1 for t in npairs if t["home_espn_id"] is None or t["away_espn_id"] is None),"quarantine":nbad[:15],"total_ncaacontest_ids":len(ngroups)})
+
+# Independent ESPN scoreboard status check for already completed source game dates.
+# The date set comes from imported box rows; this does not request upcoming future Nov6 games.
+status_index={}
+dates=sorted({str(d)[:10].replace("-","") for d in es["game_date"].tolist() if str(d)[:4]=="2026"})
+for day in dates:
+ try:
+  endpoint="https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard"
+  resp=requests.get(endpoint,params={"dates":day,"limit":500,"groups":50},timeout=25,headers={"User-Agent":"NCAABResearch2026QA/1.0"})
+  resp.raise_for_status()
+  events=resp.json().get("events",[])
+  report("SCOREBOARD_BATCH",{"date":day,"events":len(events),"status_code":resp.status_code})
+  for event in events:
+   gid=int(event["id"]);comp=event.get("competitions",[])
+   if not comp:continue
+   first=comp[0];participants=first.get("competitors",[]);observed={}
+   for t in participants:
+    try:
+     tid=int(t.get("team",{}).get("id"))
+     observed[tid]={"points":int(t.get("score")),"homeAway":t.get("homeAway")}
+    except Exception:pass
+   stat=first.get("status",event.get("status",{}));period=stat.get("period")
+   completed=stat.get("type",{}).get("completed")
+   venue=first.get("venue",{})
+   status_index[gid]={"game_id":gid,"date":day,"completed":completed,"period":period,"neutral_site":first.get("neutralSite"),"venue_id":venue.get("id"),"scoreboard":observed}
+ except Exception as exc: report("SCOREBOARD_ERROR",{"date":day,"error":str(exc)[:200]})
+official_valid=0;official_conflict=0
+for gid,pair in pairs.items():
+ s=status_index.get(gid)
+ if s is None:continue
+ good=(s["completed"] is True and len(pair)==2 and
+       all(t["team_id"] in s["scoreboard"] and
+           t["points"]==s["scoreboard"][t["team_id"]]["points"] and
+           t["home_away"]==s["scoreboard"][t["team_id"]]["homeAway"] for t in pair))
+ if good:official_valid+=1
+ else:official_conflict+=1
+ report("OFFICIAL_STATUS",{"game_id":gid,"score_valid":good,"completed":s["completed"],"period":s["period"],"neutral_site":s["neutral_site"],"venue_id":s["venue_id"]})
+report("OFFICIAL_SUMMARY",{"dates":dates,"events_found":len(status_index),"paired_game_ids":len(pairs),"official_espn_final_score_verified":official_valid,"official_conflict_or_incomplete":official_conflict,"no_scoreboard_event":len(pairs)-official_valid-official_conflict})
