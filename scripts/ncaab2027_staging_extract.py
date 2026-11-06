@@ -169,3 +169,29 @@ for gid,pair in pairs.items():
  else:official_conflict+=1
  report("OFFICIAL_STATUS",{"game_id":gid,"score_valid":good,"completed":s["completed"],"period":s["period"],"neutral_site":s["neutral_site"],"venue_id":s["venue_id"]})
 report("OFFICIAL_SUMMARY",{"dates":dates,"events_found":len(status_index),"paired_game_ids":len(pairs),"official_espn_final_score_verified":official_valid,"official_conflict_or_incomplete":official_conflict,"no_scoreboard_event":len(pairs)-official_valid-official_conflict})
+
+# Pre-tip schedule discovery only. This stage NEVER requests odds or sportsbook prices.
+from zoneinfo import ZoneInfo
+pst=ZoneInfo("America/Los_Angeles")
+today="20261106"
+response=requests.get("https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard",
+params={"dates":today,"limit":500,"groups":50},timeout=25,headers={"User-Agent":"NCAABResearch2026Schedule/1.0"})
+response.raise_for_status()
+s_games=response.json().get("events",[])
+report("TODAY_SUMMARY",{"date":today,"games":len(s_games),"source":"ESPN public scoreboard","retrieved_utc":datetime.now(timezone.utc).isoformat()})
+for event in s_games:
+ comps=event.get("competitions",[])
+ if not comps:continue
+ c=comps[0];parsed={}
+ for team in c.get("competitors",[]):
+  t=team.get("team",{})
+  parsed[team.get("homeAway","unknown")]={
+    "espn_id":str(t.get("id","")),"name":str(t.get("displayName","")),
+    "short":str(t.get("shortDisplayName",""))}
+ kickoff=str(event.get("date",""))
+ st=c.get("status",event.get("status",{}))
+ report("TODAY_SCHEDULE",{"game_id":str(event.get("id","")),"tipoff_utc":kickoff,
+  "home":parsed.get("home"),"away":parsed.get("away"),"neutral_site":c.get("neutralSite"),
+  "venue_id":c.get("venue",{}).get("id"),"status":st.get("type",{}).get("name"),
+  "completed":st.get("type",{}).get("completed"),
+  "period":st.get("period")})
