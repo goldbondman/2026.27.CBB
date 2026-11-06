@@ -80,3 +80,29 @@ with open(OUT/"valid_espn_2027.csv","w",newline="") as f:
  if valid:
   w=csv.DictWriter(f,fieldnames=list(valid[0]));w.writeheader();w.writerows(valid)
 with open(OUT/"qa.json","w") as f:json.dump({"valid_games":len(valid)//2,"invalid_games":bad,"source_espn_rows":len(es),"source_ncaa_rows":len(nc)},f,indent=2)
+
+# Second-source team-score and identity reconciliation. Keep ESPN and NCAA namespaces distinct.
+ndf=nc.to_dict("records")
+eidx={(v["game_id"],v["team_id"]):v for v in valid}
+reconciled=[];unmatched=[];score_conflict=[];nc_seen=set()
+for rec in ndf:
+ gid=integer(rec,"espn_game_id");tid=integer(rec,"team_espn_team_id")
+ if gid is None or tid is None:continue
+ k=(gid,tid)
+ if k in nc_seen:
+  unmatched.append({"game":gid,"team":tid,"why":"NCAA_DUPLICATE"});continue
+ nc_seen.add(k)
+ row=eidx.get(k)
+ pts=integer(rec,"pts");opp=integer(rec,"d_pts")
+ if row is None:
+  unmatched.append({"game":gid,"team":tid,"why":"NOT_IN_ESPN_VALIDATED"});continue
+ if row["points"]!=pts or row["opp_points"]!=opp:
+  score_conflict.append({"game":gid,"team":tid,"espn_pts":row["points"],"ncaa_pts":pts,"espn_opp":row["opp_points"],"ncaa_opp":opp});continue
+ reconciled.append({"game_id":gid,"team_id":tid,"pts":pts,"opp_pts":opp,"home_espn_team_id":integer(rec,"home_espn_team_id"),"away_espn_team_id":integer(rec,"away_espn_team_id"),"ncaa_contest_id":integer(rec,"contest_id"),"ncaa_team_id":integer(rec,"team_ncaa_team_id")})
+for row in reconciled:report("NCAA_MATCH",row)
+groups={}
+for row in reconciled: groups.setdefault(row["game_id"],set()).add(row["team_id"])
+full={gid for gid,teams in groups.items() if len(teams)==2}
+report("CROSS_SOURCE",{"ncaa_rows":len(nc),"ncaa_with_valid_espn_match":len(reconciled),"cross_source_two_team_games":len(full),"cross_source_two_team_rows":2*len(full),"unmatched_ncaa":len(unmatched),"score_conflicts":len(score_conflict),"unmatched_examples":unmatched[:15],"conflict_examples":score_conflict[:15],"verified_game_ids":sorted(full)})
+with open(OUT/"cross_source_match.csv","w",newline="") as f:
+ w=csv.DictWriter(f,fieldnames=list(reconciled[0]) if reconciled else ["game_id"]);w.writeheader();w.writerows(reconciled)
