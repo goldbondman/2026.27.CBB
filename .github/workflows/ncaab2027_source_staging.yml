@@ -5,6 +5,7 @@ on:
       - research/ncaab2027-staging-20261106
     paths:
       - .github/workflows/ncaab2027_source_staging.yml
+      - scripts/ncaab2027_staging_extract.py
   workflow_dispatch:
 permissions:
   contents: read
