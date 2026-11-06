@@ -1,0 +1,33 @@
+{
+  "n_games": 259,
+  "n_team_rows": 518,
+  "n_possession_rows": 38271,
+  "n_player_rows": 6258,
+  "event_key_duplicates": 0,
+  "paired_games": 259,
+  "player_pts_exact": 518,
+  "event_pts_exact": 452,
+  "event_pts_abs_diff_sum": 100.0,
+  "event_pts_abs_diff_max": 4.0,
+  "event_total_pace_mean": 73.88223938223938,
+  "o_poss_mean": 73.85328185328186,
+  "o_poss_vs_events_exact": 504,
+  "p44_mae_vs_events": 1.788030888030888,
+  "p475_mae_vs_events": 1.400337837837838,
+  "p44_bias_vs_events": -1.4318918918918915,
+  "p475_bias_vs_events": -0.679391891891892,
+  "mae_gain_475_over_44": 0.3876930501930499,
+  "mae_gain_bootstrap_ci95": [
+    0.32510545366795374,
+    0.44787837837837785
+  ],
+  "source_sha256": {
+    "ncaa_poss27": "65c8db0d2c877cd526b4419cd5bcce9e9c6ce707c1c22eb7431d611b231020bf",
+    "ncaa_team27": "1d41c91e25e5f99fba56b638904603714d33fc55e4acfc44cfa57f7454d890d2",
+    "ncaa_player27": "e5aaaedaf5a4291b96c99b9994f9a32c6e242149ea6aa0d1b3632aa7fe2caf8f",
+    "espn_team27": "6ec18bd96a64b11a9e7d4bd2819faef366993d57c4716a6791fb3c6b992858f0"
+  },
+  "source_last_date": "2026-11-05 00:00:00",
+  "event_reconstruction_status": "NCAA presegmented poss_num events are source-derived not independent adjudicated benchmark",
+  "game_crosswalk": "NCAA 2027 ESPN game ID null; require game/date/score matching; excluded from possession comparisons"
+}
