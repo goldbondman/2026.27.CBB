@@ -66,4 +66,90 @@
     ],
     "risk": {
       "U0": {
-        "abs...[truncated]
+        "abs_error_mae": 0.40417841911857016,
+        "risk_mae": 7.420110547415821,
+        "risk_rmse": 9.457070727811056,
+        "coverage80": 0.7757774140752864,
+        "mean_halfwidth": 18.689028359032598,
+        "retained60_mae": 11.958663174515232,
+        "rejected40_mae": 12.201633795480623,
+        "coverage_frac": 0.6006546644844517,
+        "spearman_error_corr": 0.03977576005315598
+      },
+      "U1": {
+        "abs_error_mae": 0.28409823546943525,
+        "risk_mae": 7.439178565899551,
+        "risk_rmse": 9.45129394933399,
+        "coverage80": 0.779050736497545,
+        "mean_halfwidth": 18.88163697360581,
+        "retained60_mae": 12.025632701980875,
+        "rejected40_mae": 12.100905039005664,
+        "coverage_frac": 0.6006546644844517,
+        "spearman_error_corr": 0.03340603875904149
+      }
+    },
+    "n": 611,
+    "date_clusters": 14
+  },
+  "total": {
+    "baseline": {
+      "mae": 15.301642375452339,
+      "bias": -4.940429118828008,
+      "rmse": 19.531413107194833,
+      "train_mae": 13.54855896771644,
+      "features": [
+        "base_total",
+        "base_pace",
+        "strength_sum",
+        "prior_maturity"
+      ]
+    },
+    "player": {
+      "mae": 15.160754039292732,
+      "bias": -3.7263023204451247,
+      "rmse": 19.278265764777622,
+      "train_mae": 13.513489638030247,
+      "features": [
+        "base_total",
+        "base_pace",
+        "strength_sum",
+        "prior_maturity",
+        "ret_sum_minutes",
+        "ret_sum_points",
+        "ret_sum_field_goals_attempted",
+        "ret_min_minutes"
+      ]
+    },
+    "paired_mae_gain": 0.14088833615960847,
+    "bootstrap_ci95": [
+      -0.006128914814759001,
+      0.24852050876285287
+    ],
+    "risk": {
+      "U0": {
+        "abs_error_mae": 1.82438216623218,
+        "risk_mae": 9.309150807763954,
+        "risk_rmse": 12.248456227577925,
+        "coverage80": 0.734860883797054,
+        "mean_halfwidth": 21.61752537558914,
+        "retained60_mae": 14.308005091264707,
+        "rejected40_mae": 16.79617058568538,
+        "coverage_frac": 0.6006546644844517,
+        "spearman_error_corr": 0.1517087090262576
+      },
+      "U1": {
+        "abs_error_mae": 3.6215990341226036,
+        "risk_mae": 9.521164881655748,
+        "risk_rmse": 12.76589841463324,
+        "coverage80": 0.6857610474631751,
+        "mean_halfwidth": 18.734789519492896,
+        "retained60_mae": 14.985820199719727,
+        "rejected40_mae": 15.776669992230488,
+        "coverage_frac": 0.6006546644844517,
+        "spearman_error_corr": -0.0153037555877171
+      }
+    },
+    "n": 611,
+    "date_clusters": 14
+  }
+}
