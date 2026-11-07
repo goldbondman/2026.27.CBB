@@ -245,7 +245,7 @@ def players():
     def ll(d,pr):
         y=d.three_point_field_goals_made_next.to_numpy();n=d.three_point_field_goals_attempted_next.to_numpy()
         return -float(np.sum(y*np.log(pr)+(n-y)*np.log(1-pr))/np.sum(n))
-    kgrid=[0,15,30,50,75,100,150,200,300]
+    kgrid=[0,15,30,50,75,100,150,200,300,500,1000,2000,1000000]
     train_scores={str(k):ll(dev,predict(k,dev,dev_p)) for k in kgrid}
     selected=min(kgrid,key=lambda k:train_scores[str(k)])
     scores=[];results=test[["athlete_id","team_id_prior","team_id_next","games_prior","games_next","three_point_field_goals_attempted_prior","three_point_field_goals_made_prior","three_point_field_goals_attempted_next","three_point_field_goals_made_next","minutes_prior","minutes_next"]].copy()
