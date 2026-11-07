@@ -12,6 +12,7 @@
       "pace_mae": 4.2306,
       "pace_bias": -1.432,
       "pace_rmse": 5.5672,
+      "total_mae": 14.1139,
       "large_gap_n": 81,
       "large_gap_mae": 4.2045
     },
@@ -22,6 +23,7 @@
       "pace_mae": 4.7593,
       "pace_bias": -2.6965,
       "pace_rmse": 6.1645,
+      "total_mae": 15.711,
       "large_gap_n": 84,
       "large_gap_mae": 4.4467
     },
@@ -32,6 +34,7 @@
       "pace_mae": 4.2795,
       "pace_bias": -1.708,
       "pace_rmse": 5.6325,
+      "total_mae": 14.1652,
       "large_gap_n": 81,
       "large_gap_mae": 4.2098
     },
@@ -42,6 +45,7 @@
       "pace_mae": 4.8576,
       "pace_bias": -2.9622,
       "pace_rmse": 6.2828,
+      "total_mae": 15.8124,
       "large_gap_n": 84,
       "large_gap_mae": 4.6755
     },
@@ -52,6 +56,7 @@
       "pace_mae": 4.3415,
       "pace_bias": -1.984,
       "pace_rmse": 5.7173,
+      "total_mae": 14.2484,
       "large_gap_n": 81,
       "large_gap_mae": 4.2447
     },
@@ -62,6 +67,7 @@
       "pace_mae": 4.9672,
       "pace_bias": -3.2279,
       "pace_rmse": 6.4163,
+      "total_mae": 15.9492,
       "large_gap_n": 84,
       "large_gap_mae": 4.9241
     },
@@ -72,6 +78,7 @@
       "pace_mae": 4.2003,
       "pace_bias": -1.156,
       "pace_rmse": 5.5222,
+      "total_mae": 14.091,
       "large_gap_n": 81,
       "large_gap_mae": 4.2785
     },
@@ -82,6 +89,7 @@
       "pace_mae": 4.6741,
       "pace_bias": -2.4308,
       "pace_rmse": 6.0622,
+      "total_mae": 15.6398,
       "large_gap_n": 84,
       "large_gap_mae": 4.2376
     },
@@ -92,6 +100,7 @@
       "pace_mae": 4.1884,
       "pace_bias": -0.8801,
       "pace_rmse": 5.498,
+      "total_mae": 14.0955,
       "large_gap_n": 81,
       "large_gap_mae": 4.4382
     },
@@ -102,6 +111,7 @@
       "pace_mae": 4.6112,
       "pace_bias": -2.1652,
       "pace_rmse": 5.9769,
+      "total_mae": 15.5922,
       "large_gap_n": 84,
       "large_gap_mae": 4.0985
     },
@@ -112,6 +122,7 @@
       "pace_mae": 4.2325,
       "pace_bias": -1.4529,
       "pace_rmse": 5.5705,
+      "total_mae": 14.1151,
       "large_gap_n": 81,
       "large_gap_mae": 4.2019
     },
@@ -122,6 +133,7 @@
       "pace_mae": 4.7666,
       "pace_bias": -2.7168,
       "pace_rmse": 6.1725,
+      "total_mae": 15.7176,
       "large_gap_n": 84,
       "large_gap_mae": 4.4757
     },
@@ -132,6 +144,7 @@
       "pace_mae": 4.5131,
       "pace_bias": -1.7331,
       "pace_rmse": 5.862,
+      "total_mae": 14.7268,
       "large_gap_n": 81,
       "large_gap_mae": 4.1208
     },
@@ -142,6 +155,7 @@
       "pace_mae": 5.0584,
       "pace_bias": -2.9668,
       "pace_rmse": 6.5811,
+      "total_mae": 16.2005,
       "large_gap_n": 84,
       "large_gap_mae": 4.4646
     },
@@ -152,6 +166,7 @@
       "pace_mae": 4.0651,
       "pace_bias": 0.0,
       "pace_rmse": 5.3619,
+      "total_mae": 14.0646,
       "large_gap_n": 81,
       "large_gap_mae": 4.2903
     },
@@ -162,6 +177,7 @@
       "pace_mae": 4.4815,
       "pace_bias": -1.2419,
       "pace_rmse": 5.6844,
+      "total_mae": 15.4277,
       "large_gap_n": 84,
       "large_gap_mae": 4.3018
     },
@@ -172,6 +188,7 @@
       "pace_mae": 4.0974,
       "pace_bias": -0.0,
       "pace_rmse": 5.3799,
+      "total_mae": 14.0834,
       "large_gap_n": 81,
       "large_gap_mae": 4.5085
     },
@@ -182,6 +199,7 @@
       "pace_mae": 4.4548,
       "pace_bias": -1.2645,
       "pace_rmse": 5.6858,
+      "total_mae": 15.439,
       "large_gap_n": 84,
       "large_gap_mae": 4.0993
     },
@@ -192,6 +210,7 @@
       "pace_mae": 4.3566,
       "pace_bias": -2.0399,
       "pace_rmse": 5.7368,
+      "total_mae": 14.2688,
       "large_gap_n": 81,
       "large_gap_mae": 4.264
     },
@@ -202,6 +221,7 @@
       "pace_mae": 4.9908,
       "pace_bias": -3.2818,
       "pace_rmse": 6.4451,
+      "total_mae": 15.98,
       "large_gap_n": 84,
       "large_gap_mae": 4.9788
     }
@@ -268,6 +288,43 @@
       "ci95": [
         -0.29041,
         -0.15597
+      ]
+    }
+  },
+  "holdout_total_paired_game_day_bootstrap": {
+    "fast60": {
+      "gain": 0.0712,
+      "ci95": [
+        0.02582,
+        0.10347
+      ]
+    },
+    "fast70": {
+      "gain": 0.11881,
+      "ci95": [
+        0.03801,
+        0.18172
+      ]
+    },
+    "slow60": {
+      "gain": -0.10134,
+      "ci95": [
+        -0.13241,
+        -0.05783
+      ]
+    },
+    "trained_gap_interaction": {
+      "gain": 0.28334,
+      "ci95": [
+        -0.02929,
+        0.53486
+      ]
+    },
+    "train_offset_only": {
+      "gain": 0.27201,
+      "ci95": [
+        0.01838,
+        0.47268
       ]
     }
   },
