@@ -106,3 +106,14 @@ Source raw files are sportsdataverse ESPN `hoopR-mbb-data/main/mbb/team_box/parq
 M1 **KEEP_AS_LIGHTWEIGHT_COMPARATOR**; M2 **BLOCKED_DUE_TO_PIT**; M3 **CONTINUE_TESTING_EVENT_CALIBRATION**; M4 **CONTINUE_VALIDATION_WITH_V14_HEAD_TO_HEAD**; M5 **CONTINUE_VALIDATION_EXTRASEASON**. FF3 **NOT_PROMOTED**. Situational rest **NOT_PROMOTED**. Production models **NO_CHANGE**.
 
 The deliverable required by the user is only partly complete: independent architecture prototypes and a reproducible retrospective ledger are real; 5 fully production-grade models, prospectively certified M2, profitability and any betting-edge proof remain unachieved.
+
+## After-report R022 published-outcome preliminary check
+
+To advance the already-frozen R022 prospective scorecard without contaminating the official-results ledger, a separate [MULTIMODEL_R022_EARLY_SCORE worksheet](https://docs.google.com/spreadsheets/d/1a9FPD_oVL-ozVagzpuK1J_iQj8ssziIdCtl6JC0EUE8/edit#gid=20269006) records **two independently reported final scores**, marked **NEWS_FINAL_VERIFIED_PRIMARY_OFFICIAL_PENDING**. These are descriptive interim scores, **not officially certified outcome-ledger rows and not a representative prospective sample**.
+
+| R022 game, originally frozen before tipoff | Published final (home-away) | OT | λ4 margin absolute error | Rebuilt λ7 margin absolute error | λ4 total absolute error | Rebuilt λ7 total absolute error |
+|---|---|---:|---:|---:|---:|---:|
+| Valparaiso at Purdue | Purdue 80–83 Valpo | 2 | 24.7297 | 22.2502 | 11.4132 | 11.8183 |
+| James Madison at Kentucky | Kentucky 89–80 JMU | 0 | 9.6070 | 6.8554 | 17.4918 | 17.6479 |
+
+Sources: https://www.reuters.com/sports/basketball/valparaiso-shocks-purdue-buzzer-beater-2nd-ot--flm-2026-11-07/ ; https://www.reuters.com/sports/basketball/no-23-kentucky-gets-past-upset-minded-james-madison--flm-2026-11-07/ . R022's original 2026-11-06T22:43:54.641Z freeze remains unchanged. Purdue was an extreme upset in **second overtime**, so aggregate conclusion from these two would be especially misleading. Verify primary athletics final and actual tip-off before moving to the official R022 outcome table, and keep overtime diagnostics separate.
