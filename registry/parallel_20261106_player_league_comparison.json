@@ -1,0 +1,12 @@
+{
+  "evaluated_shooters": 2175,
+  "prior_school_clusters": 405,
+  "future_attempts": 192062,
+  "k300_per_shot_logloss_gain_vs_league_only": 0.00041851190200893347,
+  "cluster_boot_ci95": [
+    0.00025779464427177085,
+    0.0005859335675350682
+  ],
+  "source": "players_game_level.csv",
+  "selection_warning": "surviving prior-year shooters with >=1 next-year 3PA, transferred/same-team labels retrospective"
+}
