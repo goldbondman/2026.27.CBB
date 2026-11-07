@@ -265,7 +265,7 @@ def players():
                 "future_shot_logloss":ll(d,p),
                 "next_3p_percent_mae":float(np.mean(abs(p-y[mask]))),
                 "next_3p_percent_weighted_mae":float(np.average(abs(p-y[mask]),weights=d.three_point_field_goals_attempted_next))})
-    baseline=predict(0,test,test_p);win=predict(selected,test,test_p)
+    baseline=np.asarray(predict(0,test,test_p),dtype=float);win=np.asarray(predict(selected,test,test_p),dtype=float)
     group=np.asarray(test.team_id_prior)
     ids=np.unique(group);rows=[np.flatnonzero(group==t) for t in ids]
     # Bootstrap player-school clusters for per-shot log-loss difference.
