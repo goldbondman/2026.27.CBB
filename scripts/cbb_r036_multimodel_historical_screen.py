@@ -153,6 +153,10 @@ def build_eval(y,d,prior_v,lg,elo):
         v=prior_v.add_prefix(side+"_").rename(columns={side+"_team_id":tgt})
         g=g.merge(v,on=tgt,how="inner",validate="many_to_one")
     g=g.merge(elo,on="game_id",validate="one_to_one")
+    # Prefer PREVIOUS-SEASON pace features, not the current game box pace fields.
+    # Current-game pace only appears in actual_pace, a postgame evaluation target.
+    for side in ("h","a"):
+        g[side+"_pace"]=g[side+"_pace_y"]
     # M1: simple team-only prior-year opponent-adjusted efficiency factors
     g["m1_pace"]=(g.h_pace+g.a_pace)/2
     g["m1_home"]=(lg["pp100"]+(g.h_off_pp100-lg["pp100"])+(g.a_def_pp100-lg["pp100"]))*g.m1_pace/100+1.35
