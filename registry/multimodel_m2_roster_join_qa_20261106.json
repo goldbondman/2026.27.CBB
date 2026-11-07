@@ -1,0 +1,46 @@
+{
+  "roster_rows": 12563,
+  "roster_pairs": 12563,
+  "game_roster_rows": 9723,
+  "game_roster_pairs": 7557,
+  "game_teams": 465,
+  "roster_teams": 743,
+  "game_player_pairs_in_snapshot": 7446,
+  "game_player_pairs_missing_from_snapshot": 111,
+  "roster_duplicate_pairs": 0,
+  "current_games": 303,
+  "missing_examples": [
+    [
+      "103",
+      "5351298"
+    ],
+    [
+      "108",
+      "5467070"
+    ],
+    [
+      "113",
+      "5326293"
+    ],
+    [
+      "113",
+      "5459577"
+    ],
+    [
+      "16231",
+      "5246830"
+    ],
+    [
+      "16231",
+      "5322033"
+    ],
+    [
+      "16231",
+      "5322040"
+    ],
+    [
+      "16231",
+      "5322041"
+    ]
+  ]
+}
