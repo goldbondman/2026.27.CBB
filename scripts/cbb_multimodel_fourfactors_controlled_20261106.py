@@ -77,18 +77,18 @@ def build(year,now,prev):
     g=pairs(early)
     prior,lg=rates(prev)
     for side,col in [("h","home_id"),("a","away_id")]:
-        g=g.merge(prior.add_prefix(side+"_").rename(columns={side+"_team_id":col}),on=col,how="inner",validate="many_to_one")
+        g=g.merge(prior.add_prefix("p_"+side+"_").rename(columns={"p_"+side+"_team_id":col}),on=col,how="inner",validate="many_to_one")
     # A fixed algebraic structural baseline available to every F0-F3 candidate.
-    g["pace_prior"]=(g.h_pace+g.a_pace)/2
-    g["base_home_pp100"]=g.h_off+g.a_allow_off-lg
-    g["base_away_pp100"]=g.a_off+g.h_allow_off-lg
+    g["pace_prior"]=(g.p_h_pace+g.p_a_pace)/2
+    g["base_home_pp100"]=g.p_h_off+g.p_a_allow_off-lg
+    g["base_away_pp100"]=g.p_a_off+g.p_h_allow_off-lg
     g["baseline_margin"]=g.pace_prior*(g.base_home_pp100-g.base_away_pp100)/100+2.7
     g["baseline_total"]=g.pace_prior*(g.base_home_pp100+g.base_away_pp100)/100
-    g["strength_diff"]=g.h_off-g.a_off+g.a_allow_off-g.h_allow_off
-    g["strength_sum"]=g.h_off+g.a_off+g.h_allow_off+g.a_allow_off
+    g["strength_diff"]=g.p_h_off-g.p_a_off+g.p_a_allow_off-g.p_h_allow_off
+    g["strength_sum"]=g.p_h_off+g.p_a_off+g.p_h_allow_off+g.p_a_allow_off
     for k in ["efg","tov","orb","ftr","three_share","three_pct","two_pct","ft_pct","steals","fouls","ftmade_poss","ts"]:
-        g["px_home_"+k]=(g["h_"+k]+g["a_allow_"+k])/2
-        g["px_away_"+k]=(g["a_"+k]+g["h_allow_"+k])/2
+        g["px_home_"+k]=(g["p_h_"+k]+g["p_a_allow_"+k])/2
+        g["px_away_"+k]=(g["p_a_"+k]+g["p_h_allow_"+k])/2
         g["diff_"+k]=g["px_home_"+k]-g["px_away_"+k]
         g["sum_"+k]=g["px_home_"+k]+g["px_away_"+k]
     g["season"]=year
