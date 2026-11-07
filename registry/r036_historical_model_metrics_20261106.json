@@ -1,0 +1,195 @@
+{
+  "status": "HISTORICAL_EXPLORATORY_REUSED_2025_26_SCREEN",
+  "training_games": 597,
+  "test_games": 607,
+  "test_dates": 14,
+  "source_sha256": {
+    "2024": "fe717d6180768b25718d3e2ae42bab9e0b90820375ec0e51b26e7f1041faf985",
+    "2025": "d98568f8db4cbcde7c10581380e31bc60e85c2ef6bf60206f6803879b07db992",
+    "2026": "db58650c1a9b2a1b6c8735507b8e922580ea514bb9f2ccbc1d91ae6588a27f42"
+  },
+  "model_metrics": [
+    {
+      "model": "m1",
+      "experiment": "R036_PRESEASON_EARLY_SCREEN",
+      "games": 607,
+      "margin_mae": 13.36639022380716,
+      "margin_bias": -7.540883444775147,
+      "margin_rmse": 17.05909055410501,
+      "total_mae": 15.711015851544888,
+      "total_bias": -6.373960522670167,
+      "total_rmse": 20.2908309317186,
+      "team_score_mae": 10.488828512788153,
+      "pace_mae": 4.759294265790191,
+      "pace_bias": -2.6965378095262404,
+      "winner_accuracy": 0.7199341021416804
+    },
+    {
+      "model": "m2",
+      "status": "BLOCKED_NO_CERTIFIED_HISTORICAL_ASOF_ROSTER",
+      "games": 0
+    },
+    {
+      "model": "m3",
+      "experiment": "R036_PRESEASON_EARLY_SCREEN",
+      "games": 607,
+      "margin_mae": 13.886293094359347,
+      "margin_bias": -8.79728296140182,
+      "margin_rmse": 17.77317820783203,
+      "total_mae": 15.558915399635614,
+      "total_bias": -6.549115788365172,
+      "total_rmse": 20.018700812803846,
+      "team_score_mae": 10.610156837462803,
+      "pace_mae": 4.7665967303289145,
+      "pace_bias": -2.7167670092802942,
+      "winner_accuracy": 0.7627677100494233
+    },
+    {
+      "model": "m4",
+      "experiment": "R036_PRESEASON_EARLY_SCREEN",
+      "games": 607,
+      "margin_mae": 11.944548639234613,
+      "margin_bias": -0.5698559618415042,
+      "margin_rmse": 15.164188752866217,
+      "total_mae": 15.185932729514676,
+      "total_bias": -4.155667622631015,
+      "total_rmse": 19.330540592854664,
+      "team_score_mae": 9.747653132930807,
+      "pace_mae": 4.759294265790191,
+      "pace_bias": -2.6965378095262404,
+      "winner_accuracy": 0.800658978583196
+    },
+    {
+      "model": "m5",
+      "experiment": "R036_PRESEASON_EARLY_SCREEN",
+      "games": 607,
+      "margin_mae": 12.488106400532546,
+      "margin_bias": -0.9075228499107426,
+      "margin_rmse": 15.69237141895974,
+      "total_mae": 15.512344584100621,
+      "total_bias": -4.546167668220046,
+      "total_rmse": 19.7665512329102,
+      "team_score_mae": 9.980339705339464,
+      "pace_mae": 4.759294265790191,
+      "pace_bias": -2.6965378095262404,
+      "winner_accuracy": 0.7792421746293245
+    }
+  ],
+  "four_factors_ablation": [
+    {
+      "version": "ff1",
+      "n": 607,
+      "margin_mae": 12.066546019859196,
+      "bias": -0.4742315061102528
+    },
+    {
+      "version": "ff2",
+      "n": 607,
+      "margin_mae": 11.990043752999291,
+      "bias": -0.6408139158808169
+    },
+    {
+      "version": "ff3",
+      "n": 607,
+      "margin_mae": 11.962178964512498,
+      "bias": -0.6308773868501634
+    }
+  ],
+  "situational_rest_ablation": {
+    "with_rest_mae": 11.944548639234613,
+    "without_rest_mae": 11.953702827599411,
+    "effect_on_margin_mae": 0.009154188364798088
+  },
+  "disagreement_four_executable": {
+    "mean_margin_range": 11.25955249268881,
+    "p90_margin_range": 16.036698256559323,
+    "winner_disagreement_fraction": 0.24217462932454695,
+    "pairwise_pred_corr": {
+      "m1": {
+        "m1": 1.0,
+        "m3": 0.9964,
+        "m4": 0.871,
+        "m5": 0.8108
+      },
+      "m3": {
+        "m1": 0.9964,
+        "m3": 1.0,
+        "m4": 0.8703,
+        "m5": 0.8058
+      },
+      "m4": {
+        "m1": 0.871,
+        "m3": 0.8703,
+        "m4": 1.0,
+        "m5": 0.7485
+      },
+      "m5": {
+        "m1": 0.8108,
+        "m3": 0.8058,
+        "m4": 0.7485,
+        "m5": 1.0
+      }
+    },
+    "pairwise_error_corr": {
+      "m1": {
+        "m1": 1.0,
+        "m3": 0.9653,
+        "m4": 0.9644,
+        "m5": 0.9498
+      },
+      "m3": {
+        "m1": 0.9653,
+        "m3": 1.0,
+        "m4": 0.9737,
+        "m5": 0.9471
+      },
+      "m4": {
+        "m1": 0.9644,
+        "m3": 0.9737,
+        "m4": 1.0,
+        "m5": 0.9437
+      },
+      "m5": {
+        "m1": 0.9498,
+        "m3": 0.9471,
+        "m4": 0.9437,
+        "m5": 1.0
+      }
+    }
+  },
+  "paired_margin_mae_gain_vs_m1": {
+    "m3": {
+      "gain": -0.5199028705521855,
+      "day_block_ci": [
+        -0.9310976438404791,
+        -0.02313027852520735
+      ]
+    },
+    "m4": {
+      "gain": 1.421841584572549,
+      "day_block_ci": [
+        0.8091658028036615,
+        2.0155642889814342
+      ]
+    },
+    "m5": {
+      "gain": 0.8782838232746158,
+      "day_block_ci": [
+        0.28529568991261717,
+        1.469707450101018
+      ]
+    }
+  },
+  "limitations": [
+    "2025-26 reused historically; no untouched holdout",
+    "D1 season eligibility unverified",
+    "ESPN home label not independently neutral-site certified",
+    "some OT games not isolated, source box possessions P475 approximate",
+    "M4 uses only previous-date same-season results, no current-date updates",
+    "M2 pregame roster date source blocked",
+    "M5 tree has 2024-25 early-season development only",
+    "M1 is not exact sealed v14 champion; reconstructed lightweight comparator",
+    "Models share input source and are not statistically independent",
+    "No calibrated win probability and no gambling ROI established"
+  ]
+}
