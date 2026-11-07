@@ -1,0 +1,78 @@
+{
+  "n": 36,
+  "source_snap_utc": "2026-11-07T03:14:56.001677+00:00",
+  "margin_boot": {
+    "gain": 0.31767777777777806,
+    "ci95": [
+      -0.4084,
+      1.0005
+    ],
+    "positive_games": 23,
+    "negative_games": 13,
+    "tie_games": 0
+  },
+  "total_boot": {
+    "gain": 0.06804166666666661,
+    "ci95": [
+      -0.0483,
+      0.1786
+    ],
+    "positive_games": 24,
+    "negative_games": 12,
+    "tie_games": 0
+  },
+  "favorite_bands": [
+    {
+      "band": "0-5",
+      "n": 6,
+      "actual_favorite_minus_pred": 9.480783333333333,
+      "m4_mae": 9.734016666666667,
+      "m7_mae": 9.929683333333335
+    },
+    {
+      "band": "5-10",
+      "n": 9,
+      "actual_favorite_minus_pred": 13.436066666666667,
+      "m4_mae": 12.266622222222221,
+      "m7_mae": 13.53788888888889
+    },
+    {
+      "band": "10-15",
+      "n": 6,
+      "actual_favorite_minus_pred": 3.6019333333333328,
+      "m4_mae": 10.386083333333332,
+      "m7_mae": 10.885866666666667
+    },
+    {
+      "band": "15-20",
+      "n": 9,
+      "actual_favorite_minus_pred": 3.195511111111111,
+      "m4_mae": 13.354044444444444,
+      "m7_mae": 13.085799999999999
+    },
+    {
+      "band": "20-30",
+      "n": 5,
+      "actual_favorite_minus_pred": 4.6108400000000005,
+      "m4_mae": 11.691419999999999,
+      "m7_mae": 12.18872
+    },
+    {
+      "band": "30-100",
+      "n": 1,
+      "actual_favorite_minus_pred": -5.661200000000001,
+      "m4_mae": 9.9112,
+      "m7_mae": 5.6612
+    }
+  ],
+  "ot_candidates": [
+    {
+      "id": "R022_R018_401926131",
+      "period": 4,
+      "final": 163
+    }
+  ],
+  "overall_residual_favorite": 6.821486111111111,
+  "unmatched": [],
+  "fail": []
+}
