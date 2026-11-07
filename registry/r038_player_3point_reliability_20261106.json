@@ -1,0 +1,47 @@
+{
+  "diagnostic": "Retrospective surviving NCAA player population, not all historical players; must not be used for pregame roster availability",
+  "data_source": "ESPN sportsdataverse ep Parquet",
+  "source_hash": {
+    "2024": "c6d398259fa0f40e262c3ab7f5ba61ee631c5808cd1784d39e50f96a8ca73b5f",
+    "2025": "68c59c2367ea17d08112d294b9974cec060e24d086bc25d3136edf8aaaf8fad3",
+    "2026": "62505219f40b4a83d9a89883620b927a336e6c78c4cea1d711db086641e2b810"
+  },
+  "results": {
+    "2025": {
+      "players": 1430,
+      "transfers": 563,
+      "same_team": 867,
+      "year": "2024-2025",
+      "league_shooting_prior": 0.3374987707649666,
+      "correlation": 0.20381127045479577,
+      "mae_shrink_0": 0.05791987454388366,
+      "weighted_MAE_shrink_0": 0.052069426573768625,
+      "mae_shrink_25": 0.05065730208369354,
+      "weighted_MAE_shrink_25": 0.04570377353056856,
+      "mae_shrink_50": 0.047531264303949314,
+      "weighted_MAE_shrink_50": 0.04274896711708939,
+      "mae_shrink_100": 0.04497063764382371,
+      "weighted_MAE_shrink_100": 0.04021358408171473,
+      "mae_shrink_200": 0.043738852918309735,
+      "weighted_MAE_shrink_200": 0.0390607080017544
+    },
+    "2026": {
+      "players": 1311,
+      "transfers": 682,
+      "same_team": 629,
+      "year": "2025-2026",
+      "league_shooting_prior": 0.3377767900857324,
+      "correlation": 0.19188986476698858,
+      "mae_shrink_0": 0.0567168532079355,
+      "weighted_MAE_shrink_0": 0.05242773489936916,
+      "mae_shrink_25": 0.049035387025069564,
+      "weighted_MAE_shrink_25": 0.045733299268996955,
+      "mae_shrink_50": 0.04594755262746506,
+      "weighted_MAE_shrink_50": 0.04281830053245962,
+      "mae_shrink_100": 0.04347524600836394,
+      "weighted_MAE_shrink_100": 0.040301929228693904,
+      "mae_shrink_200": 0.041914558656361595,
+      "weighted_MAE_shrink_200": 0.038658864088453176
+    }
+  }
+}
