@@ -1,0 +1,232 @@
+{
+  "status": "HISTORICAL_DEVELOPMENT_ONLY_NOT_SEALED",
+  "train_season": "2023-24",
+  "screen_season": "2024-25",
+  "train_games": 646,
+  "screen_games": 597,
+  "date_groups": 14,
+  "source_sha256": {
+    "2023": "2d309dfc157bd26e1c21345aa587b1b85a5ad4defdabb343b06ab5a755b672c5",
+    "2024": "fe717d6180768b25718d3e2ae42bab9e0b90820375ec0e51b26e7f1041faf985",
+    "2025": "d98568f8db4cbcde7c10581380e31bc60e85c2ef6bf60206f6803879b07db992"
+  },
+  "identical_base_features": [
+    "baseline_margin",
+    "baseline_total",
+    "pace_prior",
+    "strength_diff",
+    "strength_sum"
+  ],
+  "variant_feature_sets": {
+    "F0_BASE": [
+      "baseline_margin",
+      "baseline_total",
+      "pace_prior",
+      "strength_diff",
+      "strength_sum"
+    ],
+    "F1_FOUR": [
+      "baseline_margin",
+      "baseline_total",
+      "pace_prior",
+      "strength_diff",
+      "strength_sum",
+      "diff_efg",
+      "sum_efg",
+      "diff_tov",
+      "sum_tov",
+      "diff_orb",
+      "sum_orb",
+      "diff_ftr",
+      "sum_ftr"
+    ],
+    "F2_SHOOT": [
+      "baseline_margin",
+      "baseline_total",
+      "pace_prior",
+      "strength_diff",
+      "strength_sum",
+      "diff_efg",
+      "sum_efg",
+      "diff_tov",
+      "sum_tov",
+      "diff_orb",
+      "sum_orb",
+      "diff_ftr",
+      "sum_ftr",
+      "diff_three_share",
+      "sum_three_share",
+      "diff_three_pct",
+      "sum_three_pct",
+      "diff_two_pct",
+      "sum_two_pct",
+      "diff_ft_pct",
+      "sum_ft_pct"
+    ],
+    "F3_EVENT": [
+      "baseline_margin",
+      "baseline_total",
+      "pace_prior",
+      "strength_diff",
+      "strength_sum",
+      "diff_efg",
+      "sum_efg",
+      "diff_tov",
+      "sum_tov",
+      "diff_orb",
+      "sum_orb",
+      "diff_ftr",
+      "sum_ftr",
+      "diff_three_share",
+      "sum_three_share",
+      "diff_three_pct",
+      "sum_three_pct",
+      "diff_two_pct",
+      "sum_two_pct",
+      "diff_ft_pct",
+      "sum_ft_pct",
+      "diff_steals",
+      "sum_steals",
+      "diff_fouls",
+      "sum_fouls",
+      "diff_ftmade_poss",
+      "sum_ftmade_poss",
+      "diff_ts",
+      "sum_ts"
+    ]
+  },
+  "ridge_alpha_all": 120,
+  "metrics": [
+    {
+      "variant": "F0_BASE",
+      "train_n": 646,
+      "screen_n": 597,
+      "feature_count": 5,
+      "margin_mae": 11.631564905660012,
+      "total_mae": 13.731587561348602,
+      "margin_bias": -1.160151214090425,
+      "total_bias": -1.894965860858749
+    },
+    {
+      "variant": "F1_FOUR",
+      "train_n": 646,
+      "screen_n": 597,
+      "feature_count": 13,
+      "margin_mae": 11.627914628050954,
+      "total_mae": 13.872107492210958,
+      "margin_bias": -1.1418232545642608,
+      "total_bias": -2.141087290475188
+    },
+    {
+      "variant": "F2_SHOOT",
+      "train_n": 646,
+      "screen_n": 597,
+      "feature_count": 21,
+      "margin_mae": 11.5899877896594,
+      "total_mae": 13.996256505651425,
+      "margin_bias": -0.8395682860967731,
+      "total_bias": -2.117117927304052
+    },
+    {
+      "variant": "F3_EVENT",
+      "train_n": 646,
+      "screen_n": 597,
+      "feature_count": 29,
+      "margin_mae": 11.578120557572312,
+      "total_mae": 14.0575853386274,
+      "margin_bias": -0.6600891007888005,
+      "total_bias": -1.8066932878704227
+    }
+  ],
+  "paired_gains": [
+    {
+      "target": "margin",
+      "base": "F0_BASE",
+      "challenger": "F1_FOUR",
+      "mae_gain": 0.003650277609057389,
+      "date_cluster_boot_ci95": [
+        -0.11370573783387318,
+        0.09620814099667407
+      ]
+    },
+    {
+      "target": "margin",
+      "base": "F1_FOUR",
+      "challenger": "F2_SHOOT",
+      "mae_gain": 0.037926838391552954,
+      "date_cluster_boot_ci95": [
+        -0.08591126589522,
+        0.1262912310502722
+      ]
+    },
+    {
+      "target": "margin",
+      "base": "F2_SHOOT",
+      "challenger": "F3_EVENT",
+      "mae_gain": 0.011867232087087893,
+      "date_cluster_boot_ci95": [
+        -0.011800343400057398,
+        0.03453392963520348
+      ]
+    },
+    {
+      "target": "margin",
+      "base": "F0_BASE",
+      "challenger": "F3_EVENT",
+      "mae_gain": 0.05344434808769822,
+      "date_cluster_boot_ci95": [
+        -0.14968234086421334,
+        0.2129864380741027
+      ]
+    },
+    {
+      "target": "total",
+      "base": "F0_BASE",
+      "challenger": "F1_FOUR",
+      "mae_gain": -0.14051993086235415,
+      "date_cluster_boot_ci95": [
+        -0.24607529934265104,
+        -0.03510100032326437
+      ]
+    },
+    {
+      "target": "total",
+      "base": "F1_FOUR",
+      "challenger": "F2_SHOOT",
+      "mae_gain": -0.12414901344046715,
+      "date_cluster_boot_ci95": [
+        -0.17857368920343603,
+        -0.04994907881649897
+      ]
+    },
+    {
+      "target": "total",
+      "base": "F2_SHOOT",
+      "challenger": "F3_EVENT",
+      "mae_gain": -0.06132883297597574,
+      "date_cluster_boot_ci95": [
+        -0.13607830881859814,
+        0.0036454148339040145
+      ]
+    },
+    {
+      "target": "total",
+      "base": "F0_BASE",
+      "challenger": "F3_EVENT",
+      "mae_gain": -0.3259977772787971,
+      "date_cluster_boot_ci95": [
+        -0.510680268095403,
+        -0.14360475441294618
+      ]
+    }
+  ],
+  "limitations": [
+    "reused 2024-25 historical research, not untouched",
+    "baseline is simplified team PPP, not sealed champion v14",
+    "D1, neutral, OT not fully certified",
+    "ORBrate from aggregate rebound source approximate",
+    "observational residuals do not show causal effects",
+    "no current-season 2025-26 sealed holdout accessed",
+    "confidence intervals not multiple-hypothesis adjusted"
+  ]
+}
