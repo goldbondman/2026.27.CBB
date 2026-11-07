@@ -1,0 +1,190 @@
+{
+  "retrieved_utc": "2026-11-07T03:21:43.226555+00:00",
+  "classification": "FUTURE_PREGAME_ROSTER_SNAPSHOT_ONLY",
+  "sources": [
+    {
+      "file": "er2027",
+      "rows": 12563,
+      "cols": 36,
+      "sha256": "1e575d5425098661f2481b1a401a924513578d335ad4cddd288ed002ada8ac42",
+      "names": [
+        "season",
+        "team_id",
+        "team_slug",
+        "team_abbreviation",
+        "team_display_name",
+        "team_short_display_name",
+        "team_color",
+        "team_alternate_color",
+        "team_logo",
+        "athlete_id",
+        "uid",
+        "guid",
+        "full_name",
+        "display_name",
+        "short_name",
+        "first_name",
+        "last_name",
+        "jersey",
+        "position_abbreviation",
+        "position_name",
+        "position_id",
+        "height",
+        "weight",
+        "age",
+        "date_of_birth",
+        "birth_place_city",
+        "birth_place_state",
+        "birth_place_country",
+        "experience_years",
+        "experience_display_value",
+        "headshot_href",
+        "headshot_alt",
+        "link_web",
+        "status_id",
+        "status_name",
+        "status_type"
+      ],
+      "first_two": [
+        {
+          "athlete_id": 5467050,
+          "team_id": 100,
+          "jersey": "25",
+          "full_name": "Langston Adams Jr."
+        },
+        {
+          "athlete_id": 5467046,
+          "team_id": 100,
+          "jersey": "15",
+          "full_name": "Kosta Bjelicic"
+        }
+      ],
+      "IDs": {
+        "athlete_id": 12553,
+        "team_id": 743
+      }
+    },
+    {
+      "file": "ep2027",
+      "rows": 9723,
+      "cols": 55,
+      "sha256": "bd3d37d4a673f14df4db908830a44da7241f61140fb9ff6a2bd6c4e33548ecc5",
+      "names": [
+        "game_id",
+        "season",
+        "season_type",
+        "game_date",
+        "game_date_time",
+        "athlete_id",
+        "athlete_display_name",
+        "team_id",
+        "team_name",
+        "team_location",
+        "team_short_display_name",
+        "minutes",
+        "field_goals_made",
+        "field_goals_attempted",
+        "three_point_field_goals_made",
+        "three_point_field_goals_attempted",
+        "free_throws_made",
+        "free_throws_attempted",
+        "offensive_rebounds",
+        "defensive_rebounds",
+        "rebounds",
+        "assists",
+        "steals",
+        "blocks",
+        "turnovers",
+        "fouls",
+        "points",
+        "starter",
+        "ejected",
+        "did_not_play",
+        "athlete_jersey",
+        "athlete_short_name",
+        "athlete_headshot_href",
+        "athlete_position_name",
+        "athlete_position_abbreviation",
+        "team_display_name",
+        "team_uid",
+        "team_slug",
+        "team_logo",
+        "team_abbreviation",
+        "team_color",
+        "team_alternate_color",
+        "home_away",
+        "team_winner",
+        "team_score"
+      ],
+      "first_two": [
+        {
+          "athlete_id": 5179094,
+          "team_id": 294,
+          "game_id": 401906770,
+          "athlete_display_name": "James Morrow"
+        },
+        {
+          "athlete_id": 5144545,
+          "team_id": 294,
+          "game_id": 401906770,
+          "athlete_display_name": "Sam Mbingazo"
+        }
+      ],
+      "IDs": {
+        "athlete_id": 7556,
+        "team_id": 465,
+        "game_id": 303
+      }
+    },
+    {
+      "file": "egr2027",
+      "rows": 9723,
+      "cols": 22,
+      "sha256": "da2f06513ea355aa3e4f165f07c5d8e11b875dc4a61c8efcdd6b663feecc3e5b",
+      "names": [
+        "season",
+        "game_id",
+        "team_id",
+        "team_slug",
+        "team_abbreviation",
+        "team_display_name",
+        "home_away",
+        "athlete_id",
+        "athlete_uid",
+        "athlete_guid",
+        "athlete_display_name",
+        "athlete_short_name",
+        "athlete_first_name",
+        "athlete_last_name",
+        "athlete_jersey",
+        "athlete_position",
+        "athlete_headshot",
+        "starter",
+        "did_not_play",
+        "active",
+        "ejected",
+        "reason"
+      ],
+      "first_two": [
+        {
+          "athlete_id": 5312256,
+          "team_id": 87,
+          "game_id": 401920982,
+          "athlete_display_name": "Brady Koehler"
+        },
+        {
+          "athlete_id": 4682856,
+          "team_id": 87,
+          "game_id": 401920982,
+          "athlete_display_name": "Logan Duncomb"
+        }
+      ],
+      "IDs": {
+        "athlete_id": 7556,
+        "team_id": 465,
+        "game_id": 303
+      }
+    }
+  ],
+  "notes": "Source retrieval after 2026-11-06 games began, never backfill historical pregame membership from this snapshot"
+}
