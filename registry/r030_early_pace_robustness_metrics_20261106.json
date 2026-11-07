@@ -1,0 +1,284 @@
+{
+  "design": "2024-25 first 14 days development (2023-24 priors) / 2025-26 first 14 days previously explored historical holdout (2024-25 priors)",
+  "note": "simple source ESPN box P475, no official D1 or exact OT eligibility; historical holdout reused; descriptive, not certified independent result",
+  "train_coef_gap": -0.22026640703460573,
+  "train_intercept": 2.0398931322504126,
+  "train_offset_only": 1.4320087403822328,
+  "scores": [
+    {
+      "variant": "mean",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.2306,
+      "pace_bias": -1.432,
+      "pace_rmse": 5.5672,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.2045
+    },
+    {
+      "variant": "mean",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.7593,
+      "pace_bias": -2.6965,
+      "pace_rmse": 6.1645,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.4467
+    },
+    {
+      "variant": "slow60",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.2795,
+      "pace_bias": -1.708,
+      "pace_rmse": 5.6325,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.2098
+    },
+    {
+      "variant": "slow60",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.8576,
+      "pace_bias": -2.9622,
+      "pace_rmse": 6.2828,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.6755
+    },
+    {
+      "variant": "slow70",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.3415,
+      "pace_bias": -1.984,
+      "pace_rmse": 5.7173,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.2447
+    },
+    {
+      "variant": "slow70",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.9672,
+      "pace_bias": -3.2279,
+      "pace_rmse": 6.4163,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.9241
+    },
+    {
+      "variant": "fast60",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.2003,
+      "pace_bias": -1.156,
+      "pace_rmse": 5.5222,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.2785
+    },
+    {
+      "variant": "fast60",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.6741,
+      "pace_bias": -2.4308,
+      "pace_rmse": 6.0622,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.2376
+    },
+    {
+      "variant": "fast70",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.1884,
+      "pace_bias": -0.8801,
+      "pace_rmse": 5.498,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.4382
+    },
+    {
+      "variant": "fast70",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.6112,
+      "pace_bias": -2.1652,
+      "pace_rmse": 5.9769,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.0985
+    },
+    {
+      "variant": "geom",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.2325,
+      "pace_bias": -1.4529,
+      "pace_rmse": 5.5705,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.2019
+    },
+    {
+      "variant": "geom",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.7666,
+      "pace_bias": -2.7168,
+      "pace_rmse": 6.1725,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.4757
+    },
+    {
+      "variant": "pace_exp",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.5131,
+      "pace_bias": -1.7331,
+      "pace_rmse": 5.862,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.1208
+    },
+    {
+      "variant": "pace_exp",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 5.0584,
+      "pace_bias": -2.9668,
+      "pace_rmse": 6.5811,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.4646
+    },
+    {
+      "variant": "trained_gap_interaction",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.0651,
+      "pace_bias": 0.0,
+      "pace_rmse": 5.3619,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.2903
+    },
+    {
+      "variant": "trained_gap_interaction",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.4815,
+      "pace_bias": -1.2419,
+      "pace_rmse": 5.6844,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.3018
+    },
+    {
+      "variant": "train_offset_only",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.0974,
+      "pace_bias": -0.0,
+      "pace_rmse": 5.3799,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.5085
+    },
+    {
+      "variant": "train_offset_only",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.4548,
+      "pace_bias": -1.2645,
+      "pace_rmse": 5.6858,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.0993
+    },
+    {
+      "variant": "train_gap_slope_only",
+      "season": 2025,
+      "n": 597,
+      "pace_mae": 4.3566,
+      "pace_bias": -2.0399,
+      "pace_rmse": 5.7368,
+      "large_gap_n": 81,
+      "large_gap_mae": 4.264
+    },
+    {
+      "variant": "train_gap_slope_only",
+      "season": 2026,
+      "n": 607,
+      "pace_mae": 4.9908,
+      "pace_bias": -3.2818,
+      "pace_rmse": 6.4451,
+      "large_gap_n": 84,
+      "large_gap_mae": 4.9788
+    }
+  ],
+  "holdout_paired_game_day_bootstrap": {
+    "slow60": {
+      "gain": -0.09827,
+      "ci95": [
+        -0.12549,
+        -0.06702
+      ]
+    },
+    "slow70": {
+      "gain": -0.20789,
+      "ci95": [
+        -0.2652,
+        -0.14114
+      ]
+    },
+    "fast60": {
+      "gain": 0.08516,
+      "ci95": [
+        0.05251,
+        0.10862
+      ]
+    },
+    "fast70": {
+      "gain": 0.14806,
+      "ci95": [
+        0.09302,
+        0.19253
+      ]
+    },
+    "geom": {
+      "gain": -0.0073,
+      "ci95": [
+        -0.00991,
+        -0.00426
+      ]
+    },
+    "pace_exp": {
+      "gain": -0.29911,
+      "ci95": [
+        -0.36908,
+        -0.23298
+      ]
+    },
+    "trained_gap_interaction": {
+      "gain": 0.27779,
+      "ci95": [
+        0.13541,
+        0.38865
+      ]
+    },
+    "train_offset_only": {
+      "gain": 0.30448,
+      "ci95": [
+        0.17017,
+        0.41235
+      ]
+    },
+    "train_gap_slope_only": {
+      "gain": -0.23155,
+      "ci95": [
+        -0.29041,
+        -0.15597
+      ]
+    }
+  },
+  "source_files": [
+    "/tmp/cbb/eb2024.parquet",
+    "/tmp/cbb/eb2025.parquet",
+    "/tmp/cbb/eb2026.parquet"
+  ],
+  "source_sha": {
+    "2024": "fe717d6180768b25718d3e2ae42bab9e0b90820375ec0e51b26e7f1041faf985",
+    "2025": "d98568f8db4cbcde7c10581380e31bc60e85c2ef6bf60206f6803879b07db992",
+    "2026": "db58650c1a9b2a1b6c8735507b8e922580ea514bb9f2ccbc1d91ae6588a27f42"
+  }
+}
