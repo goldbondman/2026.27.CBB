@@ -73,3 +73,11 @@ Do not claim any statistically validated or deployable strategy. Failed 12+ disa
 3. MODEL: pre-register a margin-specific weaker-shrink shadow, independent offense/defense priors and dynamic early-season uncertainty on a later unseen multi-date cohort. Do not choose parameters on R047 games.
 4. MARKET: keep 2–under12 and 12+ as locked hypotheses for later unseen bets; compare to same-games simple underdog, use actual time-stamped prices if available, and do not back-tune Stage A forecasts from outcomes.
 5. Continue past Q041/CBB-Q-037 gates only with new primary-score certification, proper PIT priors, broader fresh samples and human promotion review.
+
+## Additional score-allocation diagnostic (same 58 games)
+This is a deterministic algebraic decomposition of **existing frozen model team scores** and observed finals, not a new pregame feature or causal identification:
+- Favored team's realized score exceeded its projected score by an average **+5.5343**; the predicted underdog averaged **-2.7226** relative to projection. Consequently favorite margin residual is +8.2569 while total residual is only +2.8117.
+- Of 18 games with absolute margin error >=20, 7 had absolute total error <10. Example Arkansas–Pine Bluff @ Baylor: model home margin +20.8878, total 161.8776; realized margin +56 and total 162. Margin off by +35.1122 while total missed +0.1224. Therefore team-score allocation, not merely projected combined scoring, is a key failure on these games.
+- For the 15 games where projected favorite actually outperformed its predicted margin by >=20: realized favorite points exceeded model by +16.285 on average, underdog scored -11.564 fewer, and average total absolute error 11.402. Strong mismatch-related component errors may offset in total.
+- Interpretation: prioritize separate offense and defense priors/matchup-efficiency ablations, point-in-time opponent adjustment, and identity QC. **Do not label this as proof that pace is correct** (possession-count truth not established), or add generic positive total corrections based solely on margin errors.
+- Persisted in R047_FINDINGS_GATES A26:F28.
